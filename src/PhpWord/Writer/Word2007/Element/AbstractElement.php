@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Element;
+namespace Devengine\PhpWord\Writer\Word2007\Element;
 
 use PhpOffice\Common\Text as CommonText;
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\AbstractElement as Element;
-use PhpOffice\PhpWord\Settings;
+use Devengine\PhpWord\Element\AbstractElement as Element;
+use Devengine\PhpWord\Settings;
 
 /**
  * Abstract element writer
@@ -39,7 +39,7 @@ abstract class AbstractElement
     /**
      * Element
      *
-     * @var \PhpOffice\PhpWord\Element\AbstractElement
+     * @var \Devengine\PhpWord\Element\AbstractElement
      */
     private $element;
 
@@ -59,7 +59,7 @@ abstract class AbstractElement
      * Create new instance
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\AbstractElement $element
+     * @param \Devengine\PhpWord\Element\AbstractElement $element
      * @param bool $withoutP
      */
     public function __construct(XMLWriter $xmlWriter, Element $element, $withoutP = false)
@@ -82,7 +82,7 @@ abstract class AbstractElement
     /**
      * Get element
      *
-     * @return \PhpOffice\PhpWord\Element\AbstractElement
+     * @return \Devengine\PhpWord\Element\AbstractElement
      */
     protected function getElement()
     {
@@ -92,7 +92,7 @@ abstract class AbstractElement
     /**
      * Start w:p DOM element.
      *
-     * @uses \PhpOffice\PhpWord\Writer\Word2007\Element\PageBreak::write()
+     * @uses \Devengine\PhpWord\Writer\Word2007\Element\PageBreak::write()
      */
     protected function startElementP()
     {
@@ -187,10 +187,10 @@ abstract class AbstractElement
     private function writeTextStyle($styleType)
     {
         $method = "get{$styleType}Style";
-        $class = "PhpOffice\\PhpWord\\Writer\\Word2007\\Style\\{$styleType}";
+        $class = "Devengine\\PhpWord\\Writer\\Word2007\\Style\\{$styleType}";
         $styleObject = $this->element->$method();
 
-        /** @var \PhpOffice\PhpWord\Writer\Word2007\Style\AbstractStyle $styleWriter Type Hint */
+        /** @var \Devengine\PhpWord\Writer\Word2007\Style\AbstractStyle $styleWriter Type Hint */
         $styleWriter = new $class($this->xmlWriter, $styleObject);
         if (method_exists($styleWriter, 'setIsInline')) {
             $styleWriter->setIsInline(true);

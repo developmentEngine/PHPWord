@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Style;
+namespace Devengine\PhpWord\Style;
 
 /**
  * Section settings
@@ -55,7 +55,7 @@ class Section extends Border
     /**
      * Paper size
      *
-     * @var \PhpOffice\PhpWord\Style\Paper
+     * @var \Devengine\PhpWord\Style\Paper
      */
     private $paper;
 
@@ -161,7 +161,7 @@ class Section extends Border
     /**
      * Line numbering
      *
-     * @var \PhpOffice\PhpWord\Style\LineNumbering
+     * @var \Devengine\PhpWord\Style\LineNumbering
      * @see  http://www.schemacentral.com/sc/ooxml/e-w_lnNumType-1.html
      */
     private $lineNumbering;
@@ -287,7 +287,7 @@ class Section extends Border
     /**
      * @param int|float|null $value
      *
-     * @return \PhpOffice\PhpWord\Style\Section
+     * @return \Devengine\PhpWord\Style\Section
      *
      * @since 0.12.0
      */
@@ -313,7 +313,7 @@ class Section extends Border
     /**
      * @param int|float|null $value
      *
-     * @return \PhpOffice\PhpWord\Style\Section
+     * @return \Devengine\PhpWord\Style\Section
      *
      * @since 0.12.0
      */
@@ -580,7 +580,7 @@ class Section extends Border
     /**
      * Get line numbering
      *
-     * @return \PhpOffice\PhpWord\Style\LineNumbering
+     * @return \Devengine\PhpWord\Style\LineNumbering
      */
     public function getLineNumbering()
     {

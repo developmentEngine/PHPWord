@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer;
+namespace Devengine\PhpWord\Writer;
 
-use PhpOffice\PhpWord\Element\Section;
-use PhpOffice\PhpWord\Media;
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Shared\ZipArchive;
+use Devengine\PhpWord\Element\Section;
+use Devengine\PhpWord\Media;
+use Devengine\PhpWord\PhpWord;
+use Devengine\PhpWord\Shared\ZipArchive;
 
 /**
  * Word2007 writer
@@ -44,7 +44,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
     /**
      * Create new Word2007 writer
      *
-     * @param \PhpOffice\PhpWord\PhpWord
+     * @param \Devengine\PhpWord\PhpWord
      */
     public function __construct(PhpWord $phpWord = null)
     {
@@ -77,7 +77,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
         foreach (array_keys($this->parts) as $partName) {
             $partClass = get_class($this) . '\\Part\\' . $partName;
             if (class_exists($partClass)) {
-                /** @var \PhpOffice\PhpWord\Writer\Word2007\Part\AbstractPart $part Type hint */
+                /** @var \Devengine\PhpWord\Writer\Word2007\Part\AbstractPart $part Type hint */
                 $part = new $partClass();
                 $part->setParentWriter($this);
                 $this->writerParts[strtolower($partName)] = $part;
@@ -167,7 +167,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
     /**
      * Add header/footer media files, e.g. footer1.xml.rels.
      *
-     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zip
+     * @param \Devengine\PhpWord\Shared\ZipArchive $zip
      * @param string $docPart
      */
     private function addHeaderFooterMedia(ZipArchive $zip, $docPart)
@@ -181,7 +181,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
                         $this->registerContentTypes($media);
                     }
 
-                    /** @var \PhpOffice\PhpWord\Writer\Word2007\Part\AbstractPart $writerPart Type hint */
+                    /** @var \Devengine\PhpWord\Writer\Word2007\Part\AbstractPart $writerPart Type hint */
                     $writerPart = $this->getWriterPart('relspart')->setMedia($media);
                     $zip->addFromString("word/_rels/{$file}.xml.rels", $writerPart->write());
                 }
@@ -192,8 +192,8 @@ class Word2007 extends AbstractWriter implements WriterInterface
     /**
      * Add header/footer content.
      *
-     * @param \PhpOffice\PhpWord\Element\Section &$section
-     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zip
+     * @param \Devengine\PhpWord\Element\Section &$section
+     * @param \Devengine\PhpWord\Shared\ZipArchive $zip
      * @param string $elmType header|footer
      * @param int &$rId
      */
@@ -202,7 +202,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
         $getFunction = $elmType == 'header' ? 'getHeaders' : 'getFooters';
         $elmCount = ($section->getSectionId() - 1) * 3;
         $elements = $section->$getFunction();
-        /** @var \PhpOffice\PhpWord\Element\AbstractElement $element Type hint */
+        /** @var \Devengine\PhpWord\Element\AbstractElement $element Type hint */
         foreach ($elements as &$element) {
             $elmCount++;
             $element->setRelationId(++$rId);
@@ -210,7 +210,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
             $this->contentTypes['override']["/word/$elmFile"] = $elmType;
             $this->relationships[] = array('target' => $elmFile, 'type' => $elmType, 'rID' => $rId);
 
-            /** @var \PhpOffice\PhpWord\Writer\Word2007\Part\AbstractPart $writerPart Type hint */
+            /** @var \Devengine\PhpWord\Writer\Word2007\Part\AbstractPart $writerPart Type hint */
             $writerPart = $this->getWriterPart($elmType)->setElement($element);
             $zip->addFromString("word/$elmFile", $writerPart->write());
         }
@@ -219,7 +219,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
     /**
      * Add footnotes/endnotes
      *
-     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zip
+     * @param \Devengine\PhpWord\Shared\ZipArchive $zip
      * @param int &$rId
      * @param string $noteType
      */
@@ -232,7 +232,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
         $collection = $phpWord->$method();
 
         // Add footnotes media files, relations, and contents
-        /** @var \PhpOffice\PhpWord\Collection\AbstractCollection $collection Type hint */
+        /** @var \Devengine\PhpWord\Collection\AbstractCollection $collection Type hint */
         if ($collection->countItems() > 0) {
             $media = Media::getElements($noteType);
             $this->addFilesToPackage($zip, $media);
@@ -242,7 +242,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
 
             // Write relationships file, e.g. word/_rels/footnotes.xml
             if (!empty($media)) {
-                /** @var \PhpOffice\PhpWord\Writer\Word2007\Part\AbstractPart $writerPart Type hint */
+                /** @var \Devengine\PhpWord\Writer\Word2007\Part\AbstractPart $writerPart Type hint */
                 $writerPart = $this->getWriterPart('relspart')->setMedia($media);
                 $zip->addFromString("word/_rels/{$partName}.xml.rels", $writerPart->write());
             }
@@ -256,7 +256,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
     /**
      * Add comments
      *
-     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zip
+     * @param \Devengine\PhpWord\Shared\ZipArchive $zip
      * @param int &$rId
      */
     private function addComments(ZipArchive $zip, &$rId)
@@ -266,7 +266,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
         $partName = 'comments';
 
         // Add comment relations and contents
-        /** @var \PhpOffice\PhpWord\Collection\AbstractCollection $collection Type hint */
+        /** @var \Devengine\PhpWord\Collection\AbstractCollection $collection Type hint */
         if ($collection->countItems() > 0) {
             $this->relationships[] = array('target' => "{$partName}.xml", 'type' => $partName, 'rID' => ++$rId);
 
@@ -279,7 +279,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
     /**
      * Add chart.
      *
-     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zip
+     * @param \Devengine\PhpWord\Shared\ZipArchive $zip
      * @param int &$rId
      */
     private function addChart(ZipArchive $zip, &$rId)
@@ -289,7 +289,7 @@ class Word2007 extends AbstractWriter implements WriterInterface
         $collection = $phpWord->getCharts();
         $index = 0;
         if ($collection->countItems() > 0) {
-            /** @var \PhpOffice\PhpWord\Element\Chart $chart */
+            /** @var \Devengine\PhpWord\Element\Chart $chart */
             foreach ($collection->getItems() as $chart) {
                 $index++;
                 $rId++;

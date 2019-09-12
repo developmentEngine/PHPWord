@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Style;
+namespace Devengine\PhpWord\Writer\Word2007\Style;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Style\Frame as FrameStyle;
-use PhpOffice\PhpWord\Writer\Word2007\Element\ParagraphAlignment;
+use Devengine\PhpWord\Style\Frame as FrameStyle;
+use Devengine\PhpWord\Writer\Word2007\Element\ParagraphAlignment;
 
 /**
  * Frame style writer
@@ -109,7 +109,7 @@ class Frame extends AbstractStyle
      * Write wrap.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\Frame $style
+     * @param \Devengine\PhpWord\Style\Frame $style
      * @param string $wrap
      */
     private function writeWrap(XMLWriter $xmlWriter, FrameStyle $style, $wrap)
@@ -149,7 +149,7 @@ class Frame extends AbstractStyle
     /**
      * Get style values in associative array
      *
-     * @param \PhpOffice\PhpWord\Style\Frame $style
+     * @param \Devengine\PhpWord\Style\Frame $style
      * @param array $properties
      * @param string $suffix
      * @return array

@@ -8,29 +8,29 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Part;
+namespace Devengine\PhpWord\Writer\ODText\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\AbstractContainer;
-use PhpOffice\PhpWord\Element\Image;
-use PhpOffice\PhpWord\Element\Table;
-use PhpOffice\PhpWord\Element\Text;
-use PhpOffice\PhpWord\Element\TextRun;
-use PhpOffice\PhpWord\Element\TrackChange;
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Style;
-use PhpOffice\PhpWord\Style\Font;
-use PhpOffice\PhpWord\Style\Paragraph;
-use PhpOffice\PhpWord\Style\Table as TableStyle;
-use PhpOffice\PhpWord\Writer\ODText\Element\Container;
-use PhpOffice\PhpWord\Writer\ODText\Style\Paragraph as ParagraphStyleWriter;
+use Devengine\PhpWord\Element\AbstractContainer;
+use Devengine\PhpWord\Element\Image;
+use Devengine\PhpWord\Element\Table;
+use Devengine\PhpWord\Element\Text;
+use Devengine\PhpWord\Element\TextRun;
+use Devengine\PhpWord\Element\TrackChange;
+use Devengine\PhpWord\PhpWord;
+use Devengine\PhpWord\Style;
+use Devengine\PhpWord\Style\Font;
+use Devengine\PhpWord\Style\Paragraph;
+use Devengine\PhpWord\Style\Table as TableStyle;
+use Devengine\PhpWord\Writer\ODText\Element\Container;
+use Devengine\PhpWord\Writer\ODText\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * ODText content part writer: content.xml
@@ -154,9 +154,9 @@ class Content extends AbstractPart
 
         $this->writeTextStyles($xmlWriter);
         foreach ($this->autoStyles as $element => $styles) {
-            $writerClass = 'PhpOffice\\PhpWord\\Writer\\ODText\\Style\\' . $element;
+            $writerClass = 'Devengine\\PhpWord\\Writer\\ODText\\Style\\' . $element;
             foreach ($styles as $style) {
-                /** @var \PhpOffice\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
+                /** @var \Devengine\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
                 $styleWriter = new $writerClass($xmlWriter, $style);
                 $styleWriter->write();
             }
@@ -179,7 +179,7 @@ class Content extends AbstractPart
                 if ($style->isAuto() === true) {
                     $styleClass = str_replace('\\Style\\', '\\Writer\\ODText\\Style\\', get_class($style));
                     if (class_exists($styleClass)) {
-                        /** @var \PhpOffice\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
+                        /** @var \Devengine\PhpWord\Writer\ODText\Style\AbstractStyle $styleWriter Type hint */
                         $styleWriter = new $styleClass($xmlWriter, $style);
                         $styleWriter->write();
                     }
@@ -201,7 +201,7 @@ class Content extends AbstractPart
     /**
      * Get automatic styles.
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Devengine\PhpWord\PhpWord $phpWord
      */
     private function getAutoStyles(PhpWord $phpWord)
     {
@@ -221,7 +221,7 @@ class Content extends AbstractPart
      *
      * Table style can be null or string of the style name
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $container
+     * @param \Devengine\PhpWord\Element\AbstractContainer $container
      * @param int $paragraphStyleCount
      * @param int $fontStyleCount
      * @todo Simplify the logic
@@ -239,7 +239,7 @@ class Content extends AbstractPart
                 $style->setStyleName('fr' . $element->getMediaIndex());
                 $this->autoStyles['Image'][] = $style;
             } elseif ($element instanceof Table) {
-                /** @var \PhpOffice\PhpWord\Style\Table $style */
+                /** @var \Devengine\PhpWord\Style\Table $style */
                 $style = $element->getStyle();
                 if ($style === null) {
                     $style = new TableStyle();
@@ -256,7 +256,7 @@ class Content extends AbstractPart
     /**
      * Get style of individual element
      *
-     * @param \PhpOffice\PhpWord\Element\Text $element
+     * @param \Devengine\PhpWord\Element\Text $element
      * @param int $paragraphStyleCount
      * @param int $fontStyleCount
      */
@@ -285,7 +285,7 @@ class Content extends AbstractPart
      * Finds all tracked changes
      *
      * @param AbstractContainer $container
-     * @param \PhpOffice\PhpWord\Element\AbstractElement[] $trackedChanges
+     * @param \Devengine\PhpWord\Element\AbstractElement[] $trackedChanges
      */
     private function collectTrackedChanges(AbstractContainer $container, &$trackedChanges = array())
     {

@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
-use PhpOffice\PhpWord\Media;
-use PhpOffice\PhpWord\PhpWord;
+use Devengine\PhpWord\Media;
+use Devengine\PhpWord\PhpWord;
 
 /**
  * Element abstract class
@@ -30,7 +30,7 @@ abstract class AbstractElement
     /**
      * PhpWord object
      *
-     * @var \PhpOffice\PhpWord\PhpWord
+     * @var \Devengine\PhpWord\PhpWord
      */
     protected $phpWord;
 
@@ -96,7 +96,7 @@ abstract class AbstractElement
     /**
      * A reference to the parent
      *
-     * @var \PhpOffice\PhpWord\Element\AbstractElement
+     * @var \Devengine\PhpWord\Element\AbstractElement
      */
     private $parent;
 
@@ -145,7 +145,7 @@ abstract class AbstractElement
     /**
      * Get PhpWord
      *
-     * @return \PhpOffice\PhpWord\PhpWord
+     * @return \Devengine\PhpWord\PhpWord
      */
     public function getPhpWord()
     {
@@ -155,7 +155,7 @@ abstract class AbstractElement
     /**
      * Set PhpWord as reference.
      *
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Devengine\PhpWord\PhpWord $phpWord
      */
     public function setPhpWord(PhpWord $phpWord = null)
     {
@@ -345,7 +345,7 @@ abstract class AbstractElement
      *
      * Passed parameter should be a container, except for Table (contain Row) and Row (contain Cell)
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractElement $container
+     * @param \Devengine\PhpWord\Element\AbstractElement $container
      */
     public function setParentContainer(self $container)
     {

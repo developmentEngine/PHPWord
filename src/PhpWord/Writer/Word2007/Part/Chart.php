@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Devengine\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\Chart as ChartElement;
+use Devengine\PhpWord\Element\Chart as ChartElement;
 
 /**
  * Word2007 chart part writer: word/charts/chartx.xml
@@ -31,7 +31,7 @@ class Chart extends AbstractPart
     /**
      * Chart element
      *
-     * @var \PhpOffice\PhpWord\Element\Chart
+     * @var \Devengine\PhpWord\Element\Chart
      */
     private $element;
 
@@ -65,7 +65,7 @@ class Chart extends AbstractPart
     /**
      * Set chart element.
      *
-     * @param \PhpOffice\PhpWord\Element\Chart $element
+     * @param \Devengine\PhpWord\Element\Chart $element
      */
     public function setElement(ChartElement $element)
     {
@@ -265,7 +265,7 @@ class Chart extends AbstractPart
                 $this->writeSeriesItem($xmlWriter, 'cat', $categories);
                 $this->writeSeriesItem($xmlWriter, 'val', $values);
 
-                // setting the chart colors was taken from https://github.com/PHPOffice/PHPWord/issues/494
+                // setting the chart colors was taken from https://github.com/Devengine/PHPWord/issues/494
                 if (is_array($colors) && count($colors)) {
                     // This is a workaround to make each series in a stack chart use a different color
                     if ($this->options['type'] == 'bar' && stristr($this->options['grouping'], 'stacked')) {
@@ -316,7 +316,7 @@ class Chart extends AbstractPart
         foreach ($values as $value) {
             $xmlWriter->startElement('c:pt');
             $xmlWriter->writeAttribute('idx', $index);
-            if (\PhpOffice\PhpWord\Settings::isOutputEscapingEnabled()) {
+            if (\Devengine\PhpWord\Settings::isOutputEscapingEnabled()) {
                 $xmlWriter->writeElement('c:v', $value);
             } else {
                 $xmlWriter->startElement('c:v');

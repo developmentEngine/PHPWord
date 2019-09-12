@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
 /**
  * Comment element
@@ -77,7 +77,7 @@ class Comment extends TrackChange
     /**
      * Sets the element where this comment starts
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractElement $value
+     * @param \Devengine\PhpWord\Element\AbstractElement $value
      */
     public function setStartElement(AbstractElement $value)
     {
@@ -90,7 +90,7 @@ class Comment extends TrackChange
     /**
      * Get the element where this comment starts
      *
-     * @return \PhpOffice\PhpWord\Element\AbstractElement
+     * @return \Devengine\PhpWord\Element\AbstractElement
      */
     public function getStartElement()
     {
@@ -100,7 +100,7 @@ class Comment extends TrackChange
     /**
      * Sets the element where this comment ends
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractElement $value
+     * @param \Devengine\PhpWord\Element\AbstractElement $value
      */
     public function setEndElement(AbstractElement $value)
     {
@@ -113,7 +113,7 @@ class Comment extends TrackChange
     /**
      * Get the element where this comment ends
      *
-     * @return \PhpOffice\PhpWord\Element\AbstractElement
+     * @return \Devengine\PhpWord\Element\AbstractElement
      */
     public function getEndElement()
     {

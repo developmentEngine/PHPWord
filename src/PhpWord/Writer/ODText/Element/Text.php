@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Element;
+namespace Devengine\PhpWord\Writer\ODText\Element;
 
-use PhpOffice\PhpWord\Element\TrackChange;
-use PhpOffice\PhpWord\Exception\Exception;
+use Devengine\PhpWord\Element\TrackChange;
+use Devengine\PhpWord\Exception\Exception;
 
 /**
  * Text element writer
@@ -34,7 +34,7 @@ class Text extends AbstractElement
     {
         $xmlWriter = $this->getXmlWriter();
         $element = $this->getElement();
-        if (!$element instanceof \PhpOffice\PhpWord\Element\Text) {
+        if (!$element instanceof \Devengine\PhpWord\Element\Text) {
             return;
         }
         $fontStyle = $element->getFontStyle();

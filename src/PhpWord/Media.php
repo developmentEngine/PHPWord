@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord;
+namespace Devengine\PhpWord;
 
-use PhpOffice\PhpWord\Element\Image;
-use PhpOffice\PhpWord\Exception\Exception;
+use Devengine\PhpWord\Element\Image;
+use Devengine\PhpWord\Exception\Exception;
 
 /**
  * Media collection
@@ -41,9 +41,9 @@ class Media
      * @param string $container section|headerx|footerx|footnote|endnote
      * @param string $mediaType image|object|link
      * @param string $source
-     * @param \PhpOffice\PhpWord\Element\Image $image
+     * @param \Devengine\PhpWord\Element\Image $image
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      *
      * @return int
      */
@@ -208,7 +208,7 @@ class Media
      *
      * @param  string $src
      * @param  string $type
-     * @param  \PhpOffice\PhpWord\Element\Image $image
+     * @param  \Devengine\PhpWord\Element\Image $image
      *
      * @return int
      *
@@ -274,7 +274,7 @@ class Media
      *
      * @param  int $headerCount
      * @param  string $src
-     * @param  \PhpOffice\PhpWord\Element\Image $image
+     * @param  \Devengine\PhpWord\Element\Image $image
      *
      * @return int
      *
@@ -322,7 +322,7 @@ class Media
      *
      * @param  int $footerCount
      * @param  string $src
-     * @param  \PhpOffice\PhpWord\Element\Image $image
+     * @param  \Devengine\PhpWord\Element\Image $image
      *
      * @return int
      *

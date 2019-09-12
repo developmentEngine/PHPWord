@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
-use PhpOffice\PhpWord\Style\Cell as CellStyle;
+use Devengine\PhpWord\Style\Cell as CellStyle;
 
 /**
  * Table cell element
@@ -39,7 +39,7 @@ class Cell extends AbstractContainer
     /**
      * Cell style
      *
-     * @var \PhpOffice\PhpWord\Style\Cell
+     * @var \Devengine\PhpWord\Style\Cell
      */
     private $style;
 
@@ -47,7 +47,7 @@ class Cell extends AbstractContainer
      * Create new instance
      *
      * @param int $width
-     * @param array|\PhpOffice\PhpWord\Style\Cell $style
+     * @param array|\Devengine\PhpWord\Style\Cell $style
      */
     public function __construct($width = null, $style = null)
     {
@@ -58,7 +58,7 @@ class Cell extends AbstractContainer
     /**
      * Get cell style
      *
-     * @return \PhpOffice\PhpWord\Style\Cell
+     * @return \Devengine\PhpWord\Style\Cell
      */
     public function getStyle()
     {

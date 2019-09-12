@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PhpWord
+ * @see         https://github.com/Devengine/PhpWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\PDF;
+namespace Devengine\PhpWord\Writer\PDF;
 
 use Dompdf\Dompdf as DompdfLib;
-use PhpOffice\PhpWord\Writer\WriterInterface;
+use Devengine\PhpWord\Writer\WriterInterface;
 
 /**
  * DomPDF writer

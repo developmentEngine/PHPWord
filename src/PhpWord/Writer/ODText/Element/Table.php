@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Element;
+namespace Devengine\PhpWord\Writer\ODText\Element;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\Row as RowElement;
-use PhpOffice\PhpWord\Element\Table as TableElement;
+use Devengine\PhpWord\Element\Row as RowElement;
+use Devengine\PhpWord\Element\Table as TableElement;
 
 /**
  * Table element writer
@@ -35,7 +35,7 @@ class Table extends AbstractElement
     {
         $xmlWriter = $this->getXmlWriter();
         $element = $this->getElement();
-        if (!$element instanceof \PhpOffice\PhpWord\Element\Table) {
+        if (!$element instanceof \Devengine\PhpWord\Element\Table) {
             return;
         }
         $rows = $element->getRows();
@@ -61,7 +61,7 @@ class Table extends AbstractElement
      * Write column.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\Table $element
+     * @param \Devengine\PhpWord\Element\Table $element
      */
     private function writeColumns(XMLWriter $xmlWriter, TableElement $element)
     {
@@ -78,12 +78,12 @@ class Table extends AbstractElement
      * Write row.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\Row $row
+     * @param \Devengine\PhpWord\Element\Row $row
      */
     private function writeRow(XMLWriter $xmlWriter, RowElement $row)
     {
         $xmlWriter->startElement('table:table-row');
-        /** @var $row \PhpOffice\PhpWord\Element\Row Type hint */
+        /** @var $row \Devengine\PhpWord\Element\Row Type hint */
         foreach ($row->getCells() as $cell) {
             $xmlWriter->startElement('table:table-cell');
             $xmlWriter->writeAttribute('office:value-type', 'string');

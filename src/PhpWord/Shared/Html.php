@@ -8,22 +8,22 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Shared;
+namespace Devengine\PhpWord\Shared;
 
-use PhpOffice\PhpWord\Element\AbstractContainer;
-use PhpOffice\PhpWord\Element\Row;
-use PhpOffice\PhpWord\Element\Table;
-use PhpOffice\PhpWord\Settings;
-use PhpOffice\PhpWord\SimpleType\Jc;
-use PhpOffice\PhpWord\SimpleType\NumberFormat;
-use PhpOffice\PhpWord\Style\Paragraph;
+use Devengine\PhpWord\Element\AbstractContainer;
+use Devengine\PhpWord\Element\Row;
+use Devengine\PhpWord\Element\Table;
+use Devengine\PhpWord\Settings;
+use Devengine\PhpWord\SimpleType\Jc;
+use Devengine\PhpWord\SimpleType\NumberFormat;
+use Devengine\PhpWord\Style\Paragraph;
 
 /**
  * Common Html functions
@@ -43,7 +43,7 @@ class Html
      * Warning: Do not pass user-generated HTML here, as that would allow an attacker to read arbitrary
      * files or perform server-side request forgery by passing local file paths or URLs in <img>.
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element Where the parts need to be added
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element Where the parts need to be added
      * @param string $html The code to parse
      * @param bool $fullHTML If it's a full HTML, no need to add 'body' tag
      * @param bool $preserveWhiteSpace If false, the whitespaces between nodes will be removed
@@ -116,7 +116,7 @@ class Html
      * Parse a node and add a corresponding element to the parent element.
      *
      * @param \DOMNode $node node to parse
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element object to add an element corresponding with the node
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element object to add an element corresponding with the node
      * @param array $styles Array with all styles
      * @param array $data Array to transport data to a next level in the DOM tree, for example level of listitems
      */
@@ -177,7 +177,7 @@ class Html
                 }
             }
             $method = "parse{$method}";
-            $newElement = call_user_func_array(array('PhpOffice\PhpWord\Shared\Html', $method), $arguments);
+            $newElement = call_user_func_array(array('Devengine\PhpWord\Shared\Html', $method), $arguments);
 
             // Retrieve back variables from arguments
             foreach ($keys as $key) {
@@ -198,7 +198,7 @@ class Html
      * Parse child nodes.
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array $styles
      * @param array $data
      */
@@ -220,9 +220,9 @@ class Html
      * Parse paragraph node
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array &$styles
-     * @return \PhpOffice\PhpWord\Element\TextRun
+     * @return \Devengine\PhpWord\Element\TextRun
      */
     private static function parseParagraph($node, $element, &$styles)
     {
@@ -235,10 +235,10 @@ class Html
     /**
      * Parse heading node
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array &$styles
      * @param string $argument1 Name of heading style
-     * @return \PhpOffice\PhpWord\Element\TextRun
+     * @return \Devengine\PhpWord\Element\TextRun
      *
      * @todo Think of a clever way of defining header styles, now it is only based on the assumption, that
      * Heading1 - Heading6 are already defined somewhere
@@ -255,7 +255,7 @@ class Html
      * Parse text node
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array &$styles
      */
     private static function parseText($node, $element, &$styles)
@@ -299,7 +299,7 @@ class Html
      * Parse table node
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array &$styles
      * @return Table $element
      *
@@ -330,7 +330,7 @@ class Html
      * Parse a table row
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\Table $element
+     * @param \Devengine\PhpWord\Element\Table $element
      * @param array &$styles
      * @return Row $element
      */
@@ -348,9 +348,9 @@ class Html
      * Parse table cell
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\Table $element
+     * @param \Devengine\PhpWord\Element\Table $element
      * @param array &$styles
-     * @return \PhpOffice\PhpWord\Element\Cell|\PhpOffice\PhpWord\Element\TextRun $element
+     * @return \Devengine\PhpWord\Element\Cell|\Devengine\PhpWord\Element\TextRun $element
      */
     private static function parseCell($node, $element, &$styles)
     {
@@ -407,7 +407,7 @@ class Html
      * Parse list node
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array &$styles
      * @param array &$data
      */
@@ -469,7 +469,7 @@ class Html
      * Parse list item node
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array &$styles
      * @param array $data
      *
@@ -538,16 +538,16 @@ class Html
                     $matches = array();
                     if (preg_match('/([0-9]+\.?[0-9]*[a-z]+)/', $cValue, $matches)) {
                         //matches number with a unit, e.g. 12px, 15pt, 20mm, ...
-                        $spacingLineRule = \PhpOffice\PhpWord\SimpleType\LineSpacingRule::EXACT;
+                        $spacingLineRule = \Devengine\PhpWord\SimpleType\LineSpacingRule::EXACT;
                         $spacing = Converter::cssToTwip($matches[1]);
                     } elseif (preg_match('/([0-9]+)%/', $cValue, $matches)) {
                         //matches percentages
-                        $spacingLineRule = \PhpOffice\PhpWord\SimpleType\LineSpacingRule::AUTO;
+                        $spacingLineRule = \Devengine\PhpWord\SimpleType\LineSpacingRule::AUTO;
                         //we are subtracting 1 line height because the Spacing writer is adding one line
                         $spacing = ((((int) $matches[1]) / 100) * Paragraph::LINE_HEIGHT) - Paragraph::LINE_HEIGHT;
                     } else {
                         //any other, wich is a multiplier. E.g. 1.2
-                        $spacingLineRule = \PhpOffice\PhpWord\SimpleType\LineSpacingRule::AUTO;
+                        $spacingLineRule = \Devengine\PhpWord\SimpleType\LineSpacingRule::AUTO;
                         //we are subtracting 1 line height because the Spacing writer is adding one line
                         $spacing = ($cValue * Paragraph::LINE_HEIGHT) - Paragraph::LINE_HEIGHT;
                     }
@@ -592,13 +592,13 @@ class Html
                 case 'width':
                     if (preg_match('/([0-9]+[a-z]+)/', $cValue, $matches)) {
                         $styles['width'] = Converter::cssToTwip($matches[1]);
-                        $styles['unit'] = \PhpOffice\PhpWord\SimpleType\TblWidth::TWIP;
+                        $styles['unit'] = \Devengine\PhpWord\SimpleType\TblWidth::TWIP;
                     } elseif (preg_match('/([0-9]+)%/', $cValue, $matches)) {
                         $styles['width'] = $matches[1] * 50;
-                        $styles['unit'] = \PhpOffice\PhpWord\SimpleType\TblWidth::PERCENT;
+                        $styles['unit'] = \Devengine\PhpWord\SimpleType\TblWidth::PERCENT;
                     } elseif (preg_match('/([0-9]+)/', $cValue, $matches)) {
                         $styles['width'] = $matches[1];
-                        $styles['unit'] = \PhpOffice\PhpWord\SimpleType\TblWidth::AUTO;
+                        $styles['unit'] = \Devengine\PhpWord\SimpleType\TblWidth::AUTO;
                     }
                     break;
                 case 'border':
@@ -618,9 +618,9 @@ class Html
      * Parse image node
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      *
-     * @return \PhpOffice\PhpWord\Element\Image
+     * @return \Devengine\PhpWord\Element\Image
      **/
     private static function parseImage($node, $element)
     {
@@ -634,12 +634,12 @@ class Html
                 case 'width':
                     $width = $attribute->value;
                     $style['width'] = $width;
-                    $style['unit'] = \PhpOffice\PhpWord\Style\Image::UNIT_PX;
+                    $style['unit'] = \Devengine\PhpWord\Style\Image::UNIT_PX;
                     break;
                 case 'height':
                     $height = $attribute->value;
                     $style['height'] = $height;
-                    $style['unit'] = \PhpOffice\PhpWord\Style\Image::UNIT_PX;
+                    $style['unit'] = \Devengine\PhpWord\Style\Image::UNIT_PX;
                     break;
                 case 'style':
                     $styleattr = explode(';', $attribute->value);
@@ -649,17 +649,17 @@ class Html
                             switch ($k) {
                                 case 'float':
                                     if (trim($v) == 'right') {
-                                        $style['hPos'] = \PhpOffice\PhpWord\Style\Image::POS_RIGHT;
-                                        $style['hPosRelTo'] = \PhpOffice\PhpWord\Style\Image::POS_RELTO_PAGE;
-                                        $style['pos'] = \PhpOffice\PhpWord\Style\Image::POS_RELATIVE;
-                                        $style['wrap'] = \PhpOffice\PhpWord\Style\Image::WRAP_TIGHT;
+                                        $style['hPos'] = \Devengine\PhpWord\Style\Image::POS_RIGHT;
+                                        $style['hPosRelTo'] = \Devengine\PhpWord\Style\Image::POS_RELTO_PAGE;
+                                        $style['pos'] = \Devengine\PhpWord\Style\Image::POS_RELATIVE;
+                                        $style['wrap'] = \Devengine\PhpWord\Style\Image::WRAP_TIGHT;
                                         $style['overlap'] = true;
                                     }
                                     if (trim($v) == 'left') {
-                                        $style['hPos'] = \PhpOffice\PhpWord\Style\Image::POS_LEFT;
-                                        $style['hPosRelTo'] = \PhpOffice\PhpWord\Style\Image::POS_RELTO_PAGE;
-                                        $style['pos'] = \PhpOffice\PhpWord\Style\Image::POS_RELATIVE;
-                                        $style['wrap'] = \PhpOffice\PhpWord\Style\Image::WRAP_TIGHT;
+                                        $style['hPos'] = \Devengine\PhpWord\Style\Image::POS_LEFT;
+                                        $style['hPosRelTo'] = \Devengine\PhpWord\Style\Image::POS_RELTO_PAGE;
+                                        $style['pos'] = \Devengine\PhpWord\Style\Image::POS_RELATIVE;
+                                        $style['wrap'] = \Devengine\PhpWord\Style\Image::WRAP_TIGHT;
                                         $style['overlap'] = true;
                                     }
                                     break;
@@ -739,7 +739,7 @@ class Html
     }
 
     /**
-     * Transforms a HTML/CSS alignment into a \PhpOffice\PhpWord\SimpleType\Jc
+     * Transforms a HTML/CSS alignment into a \Devengine\PhpWord\SimpleType\Jc
      *
      * @param string $cssAlignment
      * @return string|null
@@ -761,7 +761,7 @@ class Html
     /**
      * Parse line break
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      */
     private static function parseLineBreak($element)
     {
@@ -772,7 +772,7 @@ class Html
      * Parse link node
      *
      * @param \DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \Devengine\PhpWord\Element\AbstractContainer $element
      * @param array $styles
      */
     private static function parseLink($node, $element, &$styles)

@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\HTML\Part;
+namespace Devengine\PhpWord\Writer\HTML\Part;
 
-use PhpOffice\PhpWord\Writer\HTML\Element\Container;
-use PhpOffice\PhpWord\Writer\HTML\Element\TextRun as TextRunWriter;
+use Devengine\PhpWord\Writer\HTML\Element\Container;
+use Devengine\PhpWord\Writer\HTML\Element\TextRun as TextRunWriter;
 
 /**
  * RTF body part writer
@@ -58,7 +58,7 @@ class Body extends AbstractPart
      */
     private function writeNotes()
     {
-        /** @var \PhpOffice\PhpWord\Writer\HTML $parentWriter Type hint */
+        /** @var \Devengine\PhpWord\Writer\HTML $parentWriter Type hint */
         $parentWriter = $this->getParentWriter();
         $phpWord = $parentWriter->getPhpWord();
         $notes = $parentWriter->getNotes();

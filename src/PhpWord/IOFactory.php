@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord;
+namespace Devengine\PhpWord;
 
-use PhpOffice\PhpWord\Exception\Exception;
-use PhpOffice\PhpWord\Reader\ReaderInterface;
-use PhpOffice\PhpWord\Writer\WriterInterface;
+use Devengine\PhpWord\Exception\Exception;
+use Devengine\PhpWord\Reader\ReaderInterface;
+use Devengine\PhpWord\Writer\WriterInterface;
 
 abstract class IOFactory
 {
@@ -29,7 +29,7 @@ abstract class IOFactory
      * @param PhpWord $phpWord
      * @param string $name
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      *
      * @return WriterInterface
      */
@@ -39,7 +39,7 @@ abstract class IOFactory
             throw new Exception("\"{$name}\" is not a valid writer.");
         }
 
-        $fqName = "PhpOffice\\PhpWord\\Writer\\{$name}";
+        $fqName = "Devengine\\PhpWord\\Writer\\{$name}";
 
         return new $fqName($phpWord);
     }
@@ -63,15 +63,15 @@ abstract class IOFactory
      *
      * @param string $type
      * @param string $name
-     * @param \PhpOffice\PhpWord\PhpWord $phpWord
+     * @param \Devengine\PhpWord\PhpWord $phpWord
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      *
-     * @return \PhpOffice\PhpWord\Writer\WriterInterface|\PhpOffice\PhpWord\Reader\ReaderInterface
+     * @return \Devengine\PhpWord\Writer\WriterInterface|\Devengine\PhpWord\Reader\ReaderInterface
      */
     private static function createObject($type, $name, $phpWord = null)
     {
-        $class = "PhpOffice\\PhpWord\\{$type}\\{$name}";
+        $class = "Devengine\\PhpWord\\{$type}\\{$name}";
         if (class_exists($class) && self::isConcreteClass($class)) {
             return new $class($phpWord);
         }
@@ -83,11 +83,11 @@ abstract class IOFactory
      *
      * @param string $filename The name of the file
      * @param string $readerName
-     * @return \PhpOffice\PhpWord\PhpWord $phpWord
+     * @return \Devengine\PhpWord\PhpWord $phpWord
      */
     public static function load($filename, $readerName = 'Word2007')
     {
-        /** @var \PhpOffice\PhpWord\Reader\ReaderInterface $reader */
+        /** @var \Devengine\PhpWord\Reader\ReaderInterface $reader */
         $reader = self::createReader($readerName);
 
         return $reader->load($filename);

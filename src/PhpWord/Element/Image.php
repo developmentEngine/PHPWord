@@ -8,21 +8,21 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
-use PhpOffice\PhpWord\Exception\CreateTemporaryFileException;
-use PhpOffice\PhpWord\Exception\InvalidImageException;
-use PhpOffice\PhpWord\Exception\UnsupportedImageTypeException;
-use PhpOffice\PhpWord\Settings;
-use PhpOffice\PhpWord\Shared\ZipArchive;
-use PhpOffice\PhpWord\Style\Image as ImageStyle;
+use Devengine\PhpWord\Exception\CreateTemporaryFileException;
+use Devengine\PhpWord\Exception\InvalidImageException;
+use Devengine\PhpWord\Exception\UnsupportedImageTypeException;
+use Devengine\PhpWord\Settings;
+use Devengine\PhpWord\Shared\ZipArchive;
+use Devengine\PhpWord\Style\Image as ImageStyle;
 
 /**
  * Image element
@@ -136,8 +136,8 @@ class Image extends AbstractElement
      * @param bool $watermark
      * @param string $name
      *
-     * @throws \PhpOffice\PhpWord\Exception\InvalidImageException
-     * @throws \PhpOffice\PhpWord\Exception\UnsupportedImageTypeException
+     * @throws \Devengine\PhpWord\Exception\InvalidImageException
+     * @throws \Devengine\PhpWord\Exception\UnsupportedImageTypeException
      */
     public function __construct($source, $style = null, $watermark = false, $name = null)
     {
@@ -399,8 +399,8 @@ class Image extends AbstractElement
     /**
      * Check memory image, supported type, image functions, and proportional width/height.
      *
-     * @throws \PhpOffice\PhpWord\Exception\InvalidImageException
-     * @throws \PhpOffice\PhpWord\Exception\UnsupportedImageTypeException
+     * @throws \Devengine\PhpWord\Exception\InvalidImageException
+     * @throws \Devengine\PhpWord\Exception\UnsupportedImageTypeException
      */
     private function checkImage()
     {
@@ -470,7 +470,7 @@ class Image extends AbstractElement
      *
      * @param string $source
      *
-     * @throws \PhpOffice\PhpWord\Exception\CreateTemporaryFileException
+     * @throws \Devengine\PhpWord\Exception\CreateTemporaryFileException
      *
      * @return array|null
      */

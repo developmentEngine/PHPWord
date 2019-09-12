@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Style;
+namespace Devengine\PhpWord\Style;
 
 use PhpOffice\Common\Text;
 
@@ -129,7 +129,7 @@ abstract class AbstractStyle
     /**
      * Return style value of child style object, e.g. `left` from `Indentation` child style of `Paragraph`
      *
-     * @param \PhpOffice\PhpWord\Style\AbstractStyle $substyleObject
+     * @param \Devengine\PhpWord\Style\AbstractStyle $substyleObject
      * @param string $substyleProperty
      * @return mixed
      * @since 0.12.0
@@ -306,7 +306,7 @@ abstract class AbstractStyle
     {
         $styleClass = substr(get_class($this), 0, strrpos(get_class($this), '\\')) . '\\' . $styleName;
         if (is_array($value)) {
-            /** @var \PhpOffice\PhpWord\Style\AbstractStyle $style Type hint */
+            /** @var \Devengine\PhpWord\Style\AbstractStyle $style Type hint */
             if (!$style instanceof $styleClass) {
                 $style = new $styleClass();
             }

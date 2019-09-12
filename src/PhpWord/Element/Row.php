@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
-use PhpOffice\PhpWord\Style\Row as RowStyle;
+use Devengine\PhpWord\Style\Row as RowStyle;
 
 /**
  * Table row element
@@ -36,14 +36,14 @@ class Row extends AbstractElement
     /**
      * Row style
      *
-     * @var \PhpOffice\PhpWord\Style\Row
+     * @var \Devengine\PhpWord\Style\Row
      */
     private $style;
 
     /**
      * Row cells
      *
-     * @var \PhpOffice\PhpWord\Element\Cell[]
+     * @var \Devengine\PhpWord\Element\Cell[]
      */
     private $cells = array();
 
@@ -64,7 +64,7 @@ class Row extends AbstractElement
      *
      * @param int $width
      * @param mixed $style
-     * @return \PhpOffice\PhpWord\Element\Cell
+     * @return \Devengine\PhpWord\Element\Cell
      */
     public function addCell($width = null, $style = null)
     {
@@ -78,7 +78,7 @@ class Row extends AbstractElement
     /**
      * Get all cells
      *
-     * @return \PhpOffice\PhpWord\Element\Cell[]
+     * @return \Devengine\PhpWord\Element\Cell[]
      */
     public function getCells()
     {
@@ -88,7 +88,7 @@ class Row extends AbstractElement
     /**
      * Get row style
      *
-     * @return \PhpOffice\PhpWord\Style\Row
+     * @return \Devengine\PhpWord\Style\Row
      */
     public function getStyle()
     {

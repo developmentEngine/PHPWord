@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Style;
+namespace Devengine\PhpWord\Writer\Word2007\Style;
 
 /**
  * Spacing between lines and above/below paragraph style writer
@@ -30,7 +30,7 @@ class Spacing extends AbstractStyle
     public function write()
     {
         $style = $this->getStyle();
-        if (!$style instanceof \PhpOffice\PhpWord\Style\Spacing) {
+        if (!$style instanceof \Devengine\PhpWord\Style\Spacing) {
             return;
         }
         $xmlWriter = $this->getXmlWriter();
@@ -46,7 +46,7 @@ class Spacing extends AbstractStyle
         $line = $style->getLine();
         //if linerule is auto, the spacing is supposed to include the height of the line itself, which is 240 twips
         if (null !== $line && 'auto' === $style->getLineRule()) {
-            $line += \PhpOffice\PhpWord\Style\Paragraph::LINE_HEIGHT;
+            $line += \Devengine\PhpWord\Style\Paragraph::LINE_HEIGHT;
         }
         $xmlWriter->writeAttributeIf(!is_null($line), 'w:line', $line);
 

@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\RTF\Style;
+namespace Devengine\PhpWord\Writer\RTF\Style;
 
-use PhpOffice\PhpWord\SimpleType\Jc;
+use Devengine\PhpWord\SimpleType\Jc;
 
 /**
  * RTF paragraph style writer
@@ -43,7 +43,7 @@ class Paragraph extends AbstractStyle
     public function write()
     {
         $style = $this->getStyle();
-        if (!$style instanceof \PhpOffice\PhpWord\Style\Paragraph) {
+        if (!$style instanceof \Devengine\PhpWord\Style\Paragraph) {
             return '';
         }
 
@@ -75,14 +75,14 @@ class Paragraph extends AbstractStyle
     }
 
     /**
-     * Writes an \PhpOffice\PhpWord\Style\Indentation
+     * Writes an \Devengine\PhpWord\Style\Indentation
      *
-     * @param null|\PhpOffice\PhpWord\Style\Indentation $indent
+     * @param null|\Devengine\PhpWord\Style\Indentation $indent
      * @return string
      */
     private function writeIndentation($indent = null)
     {
-        if (isset($indent) && $indent instanceof \PhpOffice\PhpWord\Style\Indentation) {
+        if (isset($indent) && $indent instanceof \Devengine\PhpWord\Style\Indentation) {
             $writer = new Indentation($indent);
 
             return $writer->write();
@@ -94,7 +94,7 @@ class Paragraph extends AbstractStyle
     /**
      * Writes tabs
      *
-     * @param \PhpOffice\PhpWord\Style\Tab[] $tabs
+     * @param \Devengine\PhpWord\Style\Tab[] $tabs
      * @return string
      */
     private function writeTabs($tabs = null)

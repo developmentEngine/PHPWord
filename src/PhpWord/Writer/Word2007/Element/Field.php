@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Element;
+namespace Devengine\PhpWord\Writer\Word2007\Element;
 
 /**
  * Field element writer
@@ -30,7 +30,7 @@ class Field extends Text
     public function write()
     {
         $element = $this->getElement();
-        if (!$element instanceof \PhpOffice\PhpWord\Element\Field) {
+        if (!$element instanceof \Devengine\PhpWord\Element\Field) {
             return;
         }
 
@@ -42,7 +42,7 @@ class Field extends Text
         }
     }
 
-    private function writeDefault(\PhpOffice\PhpWord\Element\Field $element)
+    private function writeDefault(\Devengine\PhpWord\Element\Field $element)
     {
         $xmlWriter = $this->getXmlWriter();
         $this->startElementP();
@@ -72,7 +72,7 @@ class Field extends Text
         $xmlWriter->endElement(); // w:r
 
         if ($element->getText() != null) {
-            if ($element->getText() instanceof \PhpOffice\PhpWord\Element\TextRun) {
+            if ($element->getText() instanceof \Devengine\PhpWord\Element\TextRun) {
                 $containerWriter = new Container($xmlWriter, $element->getText(), true);
                 $containerWriter->write();
 
@@ -118,9 +118,9 @@ class Field extends Text
      * Writes a macrobutton field
      *
      * //TODO A lot of code duplication with general method, should maybe be refactored
-     * @param \PhpOffice\PhpWord\Element\Field $element
+     * @param \Devengine\PhpWord\Element\Field $element
      */
-    protected function writeMacrobutton(\PhpOffice\PhpWord\Element\Field $element)
+    protected function writeMacrobutton(\Devengine\PhpWord\Element\Field $element)
     {
         $xmlWriter = $this->getXmlWriter();
         $this->startElementP();
@@ -144,7 +144,7 @@ class Field extends Text
         $xmlWriter->endElement(); // w:r
 
         if ($element->getText() != null) {
-            if ($element->getText() instanceof \PhpOffice\PhpWord\Element\TextRun) {
+            if ($element->getText() instanceof \Devengine\PhpWord\Element\TextRun) {
                 $containerWriter = new Container($xmlWriter, $element->getText(), true);
                 $containerWriter->write();
             }
@@ -159,7 +159,7 @@ class Field extends Text
         $this->endElementP(); // w:p
     }
 
-    private function buildPropertiesAndOptions(\PhpOffice\PhpWord\Element\Field $element)
+    private function buildPropertiesAndOptions(\Devengine\PhpWord\Element\Field $element)
     {
         $propertiesAndOptions = '';
         $properties = $element->getProperties();

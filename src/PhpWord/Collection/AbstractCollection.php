@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Collection;
+namespace Devengine\PhpWord\Collection;
 
 /**
  * Collection abstract class
@@ -27,14 +27,14 @@ abstract class AbstractCollection
     /**
      * Items
      *
-     * @var \PhpOffice\PhpWord\Element\AbstractContainer[]
+     * @var \Devengine\PhpWord\Element\AbstractContainer[]
      */
     private $items = array();
 
     /**
      * Get items
      *
-     * @return \PhpOffice\PhpWord\Element\AbstractContainer[]
+     * @return \Devengine\PhpWord\Element\AbstractContainer[]
      */
     public function getItems()
     {
@@ -45,7 +45,7 @@ abstract class AbstractCollection
      * Get item by index
      *
      * @param int $index
-     * @return \PhpOffice\PhpWord\Element\AbstractContainer
+     * @return \Devengine\PhpWord\Element\AbstractContainer
      */
     public function getItem($index)
     {
@@ -60,7 +60,7 @@ abstract class AbstractCollection
      * Set item.
      *
      * @param int $index
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $item
+     * @param \Devengine\PhpWord\Element\AbstractContainer $item
      */
     public function setItem($index, $item)
     {
@@ -72,7 +72,7 @@ abstract class AbstractCollection
     /**
      * Add new item
      *
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $item
+     * @param \Devengine\PhpWord\Element\AbstractContainer $item
      * @return int
      */
     public function addItem($item)

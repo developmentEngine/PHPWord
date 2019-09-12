@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\ODText\Element;
+namespace Devengine\PhpWord\Writer\ODText\Element;
 
-use PhpOffice\PhpWord\Writer\Word2007\Element\Container as Word2007Container;
+use Devengine\PhpWord\Writer\Word2007\Element\Container as Word2007Container;
 
 /**
  * Container element writer (section, textrun, header, footnote, cell, etc.)
@@ -31,5 +31,5 @@ class Container extends Word2007Container
      *
      * @var string
      */
-    protected $namespace = 'PhpOffice\\PhpWord\\Writer\\ODText\\Element';
+    protected $namespace = 'Devengine\\PhpWord\\Writer\\ODText\\Element';
 }

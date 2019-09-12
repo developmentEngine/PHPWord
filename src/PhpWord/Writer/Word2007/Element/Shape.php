@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Element;
+namespace Devengine\PhpWord\Writer\Word2007\Element;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\Shape as ShapeElement;
-use PhpOffice\PhpWord\Style\Shape as ShapeStyle;
-use PhpOffice\PhpWord\Writer\Word2007\Style\Shape as ShapeStyleWriter;
+use Devengine\PhpWord\Element\Shape as ShapeElement;
+use Devengine\PhpWord\Style\Shape as ShapeStyle;
+use Devengine\PhpWord\Writer\Word2007\Style\Shape as ShapeStyleWriter;
 
 /**
  * Shape element writer
@@ -78,7 +78,7 @@ class Shape extends AbstractElement
      * Write arc.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\Shape $style
+     * @param \Devengine\PhpWord\Style\Shape $style
      */
     private function writeArc(XMLWriter $xmlWriter, ShapeStyle $style)
     {
@@ -92,7 +92,7 @@ class Shape extends AbstractElement
      * Write curve.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\Shape $style
+     * @param \Devengine\PhpWord\Style\Shape $style
      */
     private function writeCurve(XMLWriter $xmlWriter, ShapeStyle $style)
     {
@@ -107,7 +107,7 @@ class Shape extends AbstractElement
      * Write line.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\Shape $style
+     * @param \Devengine\PhpWord\Style\Shape $style
      */
     private function writeLine(XMLWriter $xmlWriter, ShapeStyle $style)
     {
@@ -121,7 +121,7 @@ class Shape extends AbstractElement
      * Write polyline.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\Shape $style
+     * @param \Devengine\PhpWord\Style\Shape $style
      */
     private function writePolyline(XMLWriter $xmlWriter, ShapeStyle $style)
     {
@@ -132,7 +132,7 @@ class Shape extends AbstractElement
      * Write rectangle.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\Shape $style
+     * @param \Devengine\PhpWord\Style\Shape $style
      */
     private function writeRoundRect(XMLWriter $xmlWriter, ShapeStyle $style)
     {

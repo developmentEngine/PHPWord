@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
-use PhpOffice\PhpWord\Style\Line as LineStyle;
+use Devengine\PhpWord\Style\Line as LineStyle;
 
 /**
  * Line element
@@ -27,7 +27,7 @@ class Line extends AbstractElement
     /**
      * Line style
      *
-     * @var \PhpOffice\PhpWord\Style\Line
+     * @var \Devengine\PhpWord\Style\Line
      */
     private $style;
 
@@ -44,7 +44,7 @@ class Line extends AbstractElement
     /**
      * Get line style
      *
-     * @return \PhpOffice\PhpWord\Style\Line
+     * @return \Devengine\PhpWord\Style\Line
      */
     public function getStyle()
     {

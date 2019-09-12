@@ -8,21 +8,21 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\HTML\Element;
+namespace Devengine\PhpWord\Writer\HTML\Element;
 
-use PhpOffice\PhpWord\Element\TrackChange;
-use PhpOffice\PhpWord\Settings;
-use PhpOffice\PhpWord\Style\Font;
-use PhpOffice\PhpWord\Style\Paragraph;
-use PhpOffice\PhpWord\Writer\HTML\Style\Font as FontStyleWriter;
-use PhpOffice\PhpWord\Writer\HTML\Style\Paragraph as ParagraphStyleWriter;
+use Devengine\PhpWord\Element\TrackChange;
+use Devengine\PhpWord\Settings;
+use Devengine\PhpWord\Style\Font;
+use Devengine\PhpWord\Style\Paragraph;
+use Devengine\PhpWord\Writer\HTML\Style\Font as FontStyleWriter;
+use Devengine\PhpWord\Writer\HTML\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * Text element HTML writer
@@ -66,7 +66,7 @@ class Text extends AbstractElement
      */
     public function write()
     {
-        /** @var \PhpOffice\PhpWord\Element\Text $element Type hint */
+        /** @var \Devengine\PhpWord\Element\Text $element Type hint */
         $element = $this->element;
         $this->getFontStyle();
 
@@ -217,7 +217,7 @@ class Text extends AbstractElement
      */
     private function getParagraphStyle()
     {
-        /** @var \PhpOffice\PhpWord\Element\Text $element Type hint */
+        /** @var \Devengine\PhpWord\Element\Text $element Type hint */
         $element = $this->element;
         $style = '';
         if (!method_exists($element, 'getParagraphStyle')) {
@@ -245,7 +245,7 @@ class Text extends AbstractElement
      */
     private function getFontStyle()
     {
-        /** @var \PhpOffice\PhpWord\Element\Text $element Type hint */
+        /** @var \Devengine\PhpWord\Element\Text $element Type hint */
         $element = $this->element;
         $style = '';
         $fontStyle = $element->getFontStyle();

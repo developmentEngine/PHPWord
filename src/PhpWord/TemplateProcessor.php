@@ -8,22 +8,22 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord;
+namespace Devengine\PhpWord;
 
 use PhpOffice\Common\Text;
-use PhpOffice\PhpWord\Escaper\RegExp;
-use PhpOffice\PhpWord\Escaper\Xml;
-use PhpOffice\PhpWord\Exception\CopyFileException;
-use PhpOffice\PhpWord\Exception\CreateTemporaryFileException;
-use PhpOffice\PhpWord\Exception\Exception;
-use PhpOffice\PhpWord\Shared\ZipArchive;
+use Devengine\PhpWord\Escaper\RegExp;
+use Devengine\PhpWord\Escaper\Xml;
+use Devengine\PhpWord\Exception\CopyFileException;
+use Devengine\PhpWord\Exception\CreateTemporaryFileException;
+use Devengine\PhpWord\Exception\Exception;
+use Devengine\PhpWord\Shared\ZipArchive;
 
 class TemplateProcessor
 {
@@ -88,8 +88,8 @@ class TemplateProcessor
      *
      * @param string $documentTemplate The fully qualified template filename
      *
-     * @throws \PhpOffice\PhpWord\Exception\CreateTemporaryFileException
-     * @throws \PhpOffice\PhpWord\Exception\CopyFileException
+     * @throws \Devengine\PhpWord\Exception\CreateTemporaryFileException
+     * @throws \Devengine\PhpWord\Exception\CopyFileException
      */
     public function __construct($documentTemplate)
     {
@@ -128,7 +128,7 @@ class TemplateProcessor
      * To replace an image: $templateProcessor->zip()->AddFromString("word/media/image1.jpg", file_get_contents($file));<br>
      * To read a file: $templateProcessor->zip()->getFromName("word/media/image1.jpg");
      *
-     * @return \PhpOffice\PhpWord\Shared\ZipArchive
+     * @return \Devengine\PhpWord\Shared\ZipArchive
      */
     public function zip()
     {
@@ -155,7 +155,7 @@ class TemplateProcessor
      * @param string $xml
      * @param \XSLTProcessor $xsltProcessor
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      *
      * @return string
      */
@@ -205,7 +205,7 @@ class TemplateProcessor
      * @param array $xslOptions
      * @param string $xslOptionsUri
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      */
     public function applyXslStyleSheet($xslDomDocument, $xslOptions = array(), $xslOptionsUri = '')
     {
@@ -594,7 +594,7 @@ class TemplateProcessor
      * @param string $search
      * @param int $numberOfClones
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      */
     public function cloneRow($search, $numberOfClones)
     {
@@ -722,7 +722,7 @@ class TemplateProcessor
     /**
      * Saves the result document.
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      *
      * @return string
      */
@@ -780,7 +780,7 @@ class TemplateProcessor
          * Note: we do not use `rename` function here, because it loses file ownership data on Windows platform.
          * As a result, user cannot open the file directly getting "Access denied" message.
          *
-         * @see https://github.com/PHPOffice/PHPWord/issues/532
+         * @see https://github.com/Devengine/PHPWord/issues/532
          */
         copy($tempFileName, $fileName);
         unlink($tempFileName);
@@ -914,7 +914,7 @@ class TemplateProcessor
      *
      * @param int $offset
      *
-     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @throws \Devengine\PhpWord\Exception\Exception
      *
      * @return int
      */

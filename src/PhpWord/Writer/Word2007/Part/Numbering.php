@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Part;
+namespace Devengine\PhpWord\Writer\Word2007\Part;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Style;
-use PhpOffice\PhpWord\Style\Numbering as NumberingStyle;
-use PhpOffice\PhpWord\Style\NumberingLevel;
+use Devengine\PhpWord\Style;
+use Devengine\PhpWord\Style\Numbering as NumberingStyle;
+use Devengine\PhpWord\Style\NumberingLevel;
 
 /**
  * Word2007 numbering part writer: word/numbering.xml
@@ -98,7 +98,7 @@ class Numbering extends AbstractPart
      * Write level.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\NumberingLevel $level
+     * @param \Devengine\PhpWord\Style\NumberingLevel $level
      */
     private function writeLevel(XMLWriter $xmlWriter, NumberingLevel $level)
     {
@@ -138,7 +138,7 @@ class Numbering extends AbstractPart
      * @since 0.11.0
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\NumberingLevel $level
+     * @param \Devengine\PhpWord\Style\NumberingLevel $level
      * @todo Use paragraph style writer
      */
     private function writeParagraph(XMLWriter $xmlWriter, NumberingLevel $level)
@@ -170,7 +170,7 @@ class Numbering extends AbstractPart
      * @since 0.11.0
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Style\NumberingLevel $level
+     * @param \Devengine\PhpWord\Style\NumberingLevel $level
      * @todo Use font style writer
      */
     private function writeFont(XMLWriter $xmlWriter, NumberingLevel $level)

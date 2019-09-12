@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
-use PhpOffice\PhpWord\Style\Table as TableStyle;
+use Devengine\PhpWord\Style\Table as TableStyle;
 
 /**
  * Table element
@@ -27,14 +27,14 @@ class Table extends AbstractElement
     /**
      * Table style
      *
-     * @var \PhpOffice\PhpWord\Style\Table
+     * @var \Devengine\PhpWord\Style\Table
      */
     private $style;
 
     /**
      * Table rows
      *
-     * @var \PhpOffice\PhpWord\Element\Row[]
+     * @var \Devengine\PhpWord\Element\Row[]
      */
     private $rows = array();
 
@@ -60,7 +60,7 @@ class Table extends AbstractElement
      *
      * @param int $height
      * @param mixed $style
-     * @return \PhpOffice\PhpWord\Element\Row
+     * @return \Devengine\PhpWord\Element\Row
      */
     public function addRow($height = null, $style = null)
     {
@@ -76,7 +76,7 @@ class Table extends AbstractElement
      *
      * @param int $width
      * @param mixed $style
-     * @return \PhpOffice\PhpWord\Element\Cell
+     * @return \Devengine\PhpWord\Element\Cell
      */
     public function addCell($width = null, $style = null)
     {
@@ -90,7 +90,7 @@ class Table extends AbstractElement
     /**
      * Get all rows
      *
-     * @return \PhpOffice\PhpWord\Element\Row[]
+     * @return \Devengine\PhpWord\Element\Row[]
      */
     public function getRows()
     {
@@ -100,7 +100,7 @@ class Table extends AbstractElement
     /**
      * Get table style
      *
-     * @return \PhpOffice\PhpWord\Style\Table
+     * @return \Devengine\PhpWord\Style\Table
      */
     public function getStyle()
     {
@@ -138,7 +138,7 @@ class Table extends AbstractElement
 
         $rowCount = count($this->rows);
         for ($i = 0; $i < $rowCount; $i++) {
-            /** @var \PhpOffice\PhpWord\Element\Row $row Type hint */
+            /** @var \Devengine\PhpWord\Element\Row $row Type hint */
             $row = $this->rows[$i];
             $cellCount = count($row->getCells());
             if ($columnCount < $cellCount) {

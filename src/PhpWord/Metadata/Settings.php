@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Metadata;
+namespace Devengine\PhpWord\Metadata;
 
-use PhpOffice\PhpWord\ComplexType\ProofState;
-use PhpOffice\PhpWord\ComplexType\TrackChangesView;
-use PhpOffice\PhpWord\SimpleType\Zoom;
-use PhpOffice\PhpWord\Style\Language;
+use Devengine\PhpWord\ComplexType\ProofState;
+use Devengine\PhpWord\ComplexType\TrackChangesView;
+use Devengine\PhpWord\SimpleType\Zoom;
+use Devengine\PhpWord\Style\Language;
 
 /**
  * Setting class
@@ -34,7 +34,7 @@ class Settings
      * Magnification Setting
      *
      * @see  http://www.datypic.com/sc/ooxml/e-w_zoom-1.html
-     * @var mixed either integer, in which case it treated as a percent, or one of PhpOffice\PhpWord\SimpleType\Zoom
+     * @var mixed either integer, in which case it treated as a percent, or one of Devengine\PhpWord\SimpleType\Zoom
      */
     private $zoom = 100;
 
@@ -91,14 +91,14 @@ class Settings
     /**
      * Spelling and Grammatical Checking State
      *
-     * @var \PhpOffice\PhpWord\ComplexType\ProofState
+     * @var \Devengine\PhpWord\ComplexType\ProofState
      */
     private $proofState;
 
     /**
      * Document Editing Restrictions
      *
-     * @var \PhpOffice\PhpWord\Metadata\Protection
+     * @var \Devengine\PhpWord\Metadata\Protection
      */
     private $documentProtection;
 
@@ -255,7 +255,7 @@ class Settings
     /**
      * Get the Visibility of Annotation Types
      *
-     * @return \PhpOffice\PhpWord\ComplexType\TrackChangesView
+     * @return \Devengine\PhpWord\ComplexType\TrackChangesView
      */
     public function getRevisionView()
     {

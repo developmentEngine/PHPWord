@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Style;
+namespace Devengine\PhpWord\Writer\Word2007\Style;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Settings;
+use Devengine\PhpWord\Settings;
 
 /**
  * Style writer
@@ -37,7 +37,7 @@ abstract class AbstractStyle
     /**
      * Style; set protected for a while
      *
-     * @var string|\PhpOffice\PhpWord\Style\AbstractStyle
+     * @var string|\Devengine\PhpWord\Style\AbstractStyle
      */
     protected $style;
 
@@ -50,7 +50,7 @@ abstract class AbstractStyle
      * Create new instance.
      *
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param string|\PhpOffice\PhpWord\Style\AbstractStyle $style
+     * @param string|\Devengine\PhpWord\Style\AbstractStyle $style
      */
     public function __construct(XMLWriter $xmlWriter, $style = null)
     {
@@ -71,7 +71,7 @@ abstract class AbstractStyle
     /**
      * Get Style
      *
-     * @return string|\PhpOffice\PhpWord\Style\AbstractStyle
+     * @return string|\Devengine\PhpWord\Style\AbstractStyle
      */
     protected function getStyle()
     {
@@ -113,9 +113,9 @@ abstract class AbstractStyle
     protected function writeChildStyle(XMLWriter $xmlWriter, $name, $value)
     {
         if ($value !== null) {
-            $class = 'PhpOffice\\PhpWord\\Writer\\Word2007\\Style\\' . $name;
+            $class = 'Devengine\\PhpWord\\Writer\\Word2007\\Style\\' . $name;
 
-            /** @var \PhpOffice\PhpWord\Writer\Word2007\Style\AbstractStyle $writer */
+            /** @var \Devengine\PhpWord\Writer\Word2007\Style\AbstractStyle $writer */
             $writer = new $class($xmlWriter, $value);
             $writer->write();
         }

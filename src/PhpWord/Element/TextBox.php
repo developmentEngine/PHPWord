@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Element;
+namespace Devengine\PhpWord\Element;
 
-use PhpOffice\PhpWord\Style\TextBox as TextBoxStyle;
+use Devengine\PhpWord\Style\TextBox as TextBoxStyle;
 
 /**
  * TextBox element
@@ -34,7 +34,7 @@ class TextBox extends AbstractContainer
     /**
      * TextBox style
      *
-     * @var \PhpOffice\PhpWord\Style\TextBox
+     * @var \Devengine\PhpWord\Style\TextBox
      */
     private $style;
 
@@ -51,7 +51,7 @@ class TextBox extends AbstractContainer
     /**
      * Get textbox style
      *
-     * @return \PhpOffice\PhpWord\Style\TextBox
+     * @return \Devengine\PhpWord\Style\TextBox
      */
     public function getStyle()
     {

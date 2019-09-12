@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https://github.com/Devengine/PHPWord/contributors.
  *
- * @see         https://github.com/PHPOffice/PHPWord
+ * @see         https://github.com/Devengine/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\PhpWord\Writer\Word2007\Element;
+namespace Devengine\PhpWord\Writer\Word2007\Element;
 
 use PhpOffice\Common\XMLWriter;
-use PhpOffice\PhpWord\Element\FormField as FormFieldElement;
+use Devengine\PhpWord\Element\FormField as FormFieldElement;
 
 /**
  * FormField element writer
@@ -106,7 +106,7 @@ class FormField extends Text
      *
      * @see  http://www.datypic.com/sc/ooxml/t-w_CT_FFTextInput.html
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\FormField $element
+     * @param \Devengine\PhpWord\Element\FormField $element
      */
     private function writeTextInput(XMLWriter $xmlWriter, FormFieldElement $element)
     {
@@ -122,7 +122,7 @@ class FormField extends Text
      *
      * @see  http://www.datypic.com/sc/ooxml/t-w_CT_FFCheckBox.html
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\FormField $element
+     * @param \Devengine\PhpWord\Element\FormField $element
      */
     private function writeCheckBox(XMLWriter $xmlWriter, FormFieldElement $element)
     {
@@ -145,7 +145,7 @@ class FormField extends Text
      *
      * @see  http://www.datypic.com/sc/ooxml/t-w_CT_FFDDList.html
      * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \PhpOffice\PhpWord\Element\FormField $element
+     * @param \Devengine\PhpWord\Element\FormField $element
      */
     private function writeDropDown(XMLWriter $xmlWriter, FormFieldElement $element)
     {

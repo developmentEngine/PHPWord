@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Part;
+namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 
-use PhpOffice\Common\Microsoft\PasswordEncoder;
-use Devengine\PhpWord\ComplexType\ProofState;
-use Devengine\PhpWord\ComplexType\TrackChangesView;
-use Devengine\PhpWord\Style\Language;
+use PhpOffice\PhpWord\ComplexType\ProofState;
+use PhpOffice\PhpWord\ComplexType\TrackChangesView;
+use PhpOffice\PhpWord\Shared\Microsoft\PasswordEncoder;
+use PhpOffice\PhpWord\Style\Language;
 
 /**
  * Word2007 settings part writer: word/settings.xml
@@ -69,7 +69,7 @@ class Settings extends AbstractPart
     /**
      * Write indivual setting, recursive to any child settings.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      * @param string $settingKey
      * @param array|string $settingValue
      */
@@ -99,7 +99,7 @@ class Settings extends AbstractPart
      */
     private function getSettings()
     {
-        /** @var \Devengine\PhpWord\Metadata\Settings $documentSettings */
+        /** @var \PhpOffice\PhpWord\Metadata\Settings $documentSettings */
         $documentSettings = $this->getParentWriter()->getPhpWord()->getSettings();
 
         // Default settings
@@ -181,7 +181,7 @@ class Settings extends AbstractPart
     /**
      * Get protection settings.
      *
-     * @param \Devengine\PhpWord\Metadata\Protection $documentProtection
+     * @param \PhpOffice\PhpWord\Metadata\Protection $documentProtection
      */
     private function setDocumentProtection($documentProtection)
     {

@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\HTML\Element;
+namespace PhpOffice\PhpWord\Writer\HTML\Element;
 
-use Devengine\PhpWord\Element\AbstractContainer as ContainerElement;
+use PhpOffice\PhpWord\Element\AbstractContainer as ContainerElement;
 
 /**
  * Container element HTML writer
@@ -31,7 +31,7 @@ class Container extends AbstractElement
      *
      * @var string
      */
-    protected $namespace = 'Devengine\\PhpWord\\Writer\\HTML\\Element';
+    protected $namespace = 'PhpOffice\\PhpWord\\Writer\\HTML\\Element';
 
     /**
      * Write container
@@ -51,9 +51,9 @@ class Container extends AbstractElement
         $elements = $container->getElements();
         foreach ($elements as $element) {
             $elementClass = get_class($element);
-            $writerClass = str_replace('Devengine\\PhpWord\\Element', $this->namespace, $elementClass);
+            $writerClass = str_replace('PhpOffice\\PhpWord\\Element', $this->namespace, $elementClass);
             if (class_exists($writerClass)) {
-                /** @var \Devengine\PhpWord\Writer\HTML\Element\AbstractElement $writer Type hint */
+                /** @var \PhpOffice\PhpWord\Writer\HTML\Element\AbstractElement $writer Type hint */
                 $writer = new $writerClass($this->parentWriter, $element, $withoutP);
                 $content .= $writer->write();
             }

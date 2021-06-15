@@ -8,22 +8,22 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\HTML\Part;
+namespace PhpOffice\PhpWord\Writer\HTML\Part;
 
-use Devengine\PhpWord\Settings;
-use Devengine\PhpWord\Style;
-use Devengine\PhpWord\Style\Font;
-use Devengine\PhpWord\Style\Paragraph;
-use Devengine\PhpWord\Writer\HTML\Style\Font as FontStyleWriter;
-use Devengine\PhpWord\Writer\HTML\Style\Generic as GenericStyleWriter;
-use Devengine\PhpWord\Writer\HTML\Style\Paragraph as ParagraphStyleWriter;
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\Style;
+use PhpOffice\PhpWord\Style\Font;
+use PhpOffice\PhpWord\Style\Paragraph;
+use PhpOffice\PhpWord\Writer\HTML\Style\Font as FontStyleWriter;
+use PhpOffice\PhpWord\Writer\HTML\Style\Generic as GenericStyleWriter;
+use PhpOffice\PhpWord\Writer\HTML\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * RTF head part writer

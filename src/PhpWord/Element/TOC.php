@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
-use Devengine\PhpWord\PhpWord;
-use Devengine\PhpWord\Style\Font;
-use Devengine\PhpWord\Style\TOC as TOCStyle;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Style\Font;
+use PhpOffice\PhpWord\Style\TOC as TOCStyle;
 
 /**
  * Table of contents
@@ -29,14 +29,14 @@ class TOC extends AbstractElement
     /**
      * TOC style
      *
-     * @var \Devengine\PhpWord\Style\TOC
+     * @var \PhpOffice\PhpWord\Style\TOC
      */
     private $TOCStyle;
 
     /**
      * Font style
      *
-     * @var \Devengine\PhpWord\Style\Font|string
+     * @var \PhpOffice\PhpWord\Style\Font|string
      */
     private $fontStyle;
 
@@ -94,7 +94,7 @@ class TOC extends AbstractElement
 
         $titles = $this->phpWord->getTitles()->getItems();
         foreach ($titles as $i => $title) {
-            /** @var \Devengine\PhpWord\Element\Title $title Type hint */
+            /** @var \PhpOffice\PhpWord\Element\Title $title Type hint */
             $depth = $title->getDepth();
             if ($this->minDepth > $depth) {
                 unset($titles[$i]);
@@ -110,7 +110,7 @@ class TOC extends AbstractElement
     /**
      * Get TOC Style
      *
-     * @return \Devengine\PhpWord\Style\TOC
+     * @return \PhpOffice\PhpWord\Style\TOC
      */
     public function getStyleTOC()
     {
@@ -120,7 +120,7 @@ class TOC extends AbstractElement
     /**
      * Get Font Style
      *
-     * @return \Devengine\PhpWord\Style\Font|string
+     * @return \PhpOffice\PhpWord\Style\Font|string
      */
     public function getStyleFont()
     {

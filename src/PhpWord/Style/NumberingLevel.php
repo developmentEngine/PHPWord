@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
 
-use Devengine\PhpWord\SimpleType\Jc;
-use Devengine\PhpWord\SimpleType\NumberFormat;
+use PhpOffice\PhpWord\SimpleType\Jc;
+use PhpOffice\PhpWord\SimpleType\NumberFormat;
 
 /**
  * Numbering level definition
@@ -44,7 +44,7 @@ class NumberingLevel extends AbstractStyle
     private $start = 1;
 
     /**
-     * Numbering format w:numFmt, one of Devengine\PhpWord\SimpleType\NumberFormat
+     * Numbering format w:numFmt, one of PhpOffice\PhpWord\SimpleType\NumberFormat
      *
      * @var string
      * @see  http://www.schemacentral.com/sc/ooxml/t-w_ST_NumberFormat.html
@@ -86,7 +86,7 @@ class NumberingLevel extends AbstractStyle
     /**
      * Justification, w:lvlJc
      *
-     * @var string, one of Devengine\PhpWord\SimpleType\Jc
+     * @var string, one of PhpOffice\PhpWord\SimpleType\Jc
      */
     private $alignment = '';
 

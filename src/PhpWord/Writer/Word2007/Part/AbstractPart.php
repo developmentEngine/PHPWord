@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Part;
+namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Exception\Exception;
-use Devengine\PhpWord\Settings;
-use Devengine\PhpWord\Writer\AbstractWriter;
+use PhpOffice\PhpWord\Exception\Exception;
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Writer\AbstractWriter;
 
 /**
  * Word2007 writer part abstract class
@@ -30,7 +30,7 @@ abstract class AbstractPart
     /**
      * Parent writer
      *
-     * @var \Devengine\PhpWord\Writer\AbstractWriter
+     * @var \PhpOffice\PhpWord\Writer\AbstractWriter
      */
     protected $parentWriter;
 
@@ -49,7 +49,7 @@ abstract class AbstractPart
     /**
      * Set parent writer.
      *
-     * @param \Devengine\PhpWord\Writer\AbstractWriter $writer
+     * @param \PhpOffice\PhpWord\Writer\AbstractWriter $writer
      */
     public function setParentWriter(AbstractWriter $writer = null)
     {
@@ -59,8 +59,8 @@ abstract class AbstractPart
     /**
      * Get parent writer
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
-     * @return \Devengine\PhpWord\Writer\AbstractWriter
+     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @return \PhpOffice\PhpWord\Writer\AbstractWriter
      */
     public function getParentWriter()
     {
@@ -73,7 +73,7 @@ abstract class AbstractPart
     /**
      * Get XML Writer
      *
-     * @return \PhpOffice\Common\XMLWriter
+     * @return \PhpOffice\PhpWord\Shared\XMLWriter
      */
     protected function getXmlWriter()
     {

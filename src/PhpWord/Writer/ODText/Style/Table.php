@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\ODText\Style;
+namespace PhpOffice\PhpWord\Writer\ODText\Style;
 
 /**
  * Table style writer
@@ -29,9 +29,9 @@ class Table extends AbstractStyle
      */
     public function write()
     {
-        /** @var \Devengine\PhpWord\Style\Table $style Type hint */
+        /** @var \PhpOffice\PhpWord\Style\Table $style Type hint */
         $style = $this->getStyle();
-        if (!$style instanceof \Devengine\PhpWord\Style\Table) {
+        if (!$style instanceof \PhpOffice\PhpWord\Style\Table) {
             return;
         }
         $xmlWriter = $this->getXmlWriter();
@@ -43,6 +43,7 @@ class Table extends AbstractStyle
         //$xmlWriter->writeAttribute('style:width', 'table');
         $xmlWriter->writeAttribute('style:rel-width', 100);
         $xmlWriter->writeAttribute('table:align', 'center');
+        $xmlWriter->writeAttributeIf($style->isBidiVisual(), 'style:writing-mode', 'rl-tb');
         $xmlWriter->endElement(); // style:table-properties
         $xmlWriter->endElement(); // style:style
 

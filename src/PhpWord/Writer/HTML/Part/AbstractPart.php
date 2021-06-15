@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\HTML\Part;
+namespace PhpOffice\PhpWord\Writer\HTML\Part;
 
-use Devengine\PhpWord\Exception\Exception;
-use Devengine\PhpWord\Writer\AbstractWriter;
-use Zend\Escaper\Escaper;
+use Laminas\Escaper\Escaper;
+use PhpOffice\PhpWord\Exception\Exception;
+use PhpOffice\PhpWord\Writer\AbstractWriter;
 
 /**
  * @since 0.11.0
@@ -27,12 +27,12 @@ use Zend\Escaper\Escaper;
 abstract class AbstractPart
 {
     /**
-     * @var \Devengine\PhpWord\Writer\AbstractWriter
+     * @var \PhpOffice\PhpWord\Writer\AbstractWriter
      */
     private $parentWriter;
 
     /**
-     * @var \Zend\Escaper\Escaper
+     * @var \Laminas\Escaper\Escaper
      */
     protected $escaper;
 
@@ -47,7 +47,7 @@ abstract class AbstractPart
     abstract public function write();
 
     /**
-     * @param \Devengine\PhpWord\Writer\AbstractWriter $writer
+     * @param \PhpOffice\PhpWord\Writer\AbstractWriter $writer
      */
     public function setParentWriter(AbstractWriter $writer = null)
     {
@@ -55,9 +55,9 @@ abstract class AbstractPart
     }
 
     /**
-     * @throws \Devengine\PhpWord\Exception\Exception
+     * @throws \PhpOffice\PhpWord\Exception\Exception
      *
-     * @return \Devengine\PhpWord\Writer\AbstractWriter
+     * @return \PhpOffice\PhpWord\Writer\AbstractWriter
      */
     public function getParentWriter()
     {

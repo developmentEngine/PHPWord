@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Reader;
+namespace PhpOffice\PhpWord\Reader;
 
-use PhpOffice\Common\XMLReader;
-use Devengine\PhpWord\PhpWord;
-use Devengine\PhpWord\Shared\ZipArchive;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\XMLReader;
+use PhpOffice\PhpWord\Shared\ZipArchive;
 
 /**
  * Reader for Word2007
@@ -34,7 +34,7 @@ class Word2007 extends AbstractReader implements ReaderInterface
      * Loads PhpWord from file
      *
      * @param string $docFile
-     * @return \Devengine\PhpWord\PhpWord
+     * @return \PhpOffice\PhpWord\PhpWord
      */
     public function load($docFile)
     {
@@ -81,7 +81,7 @@ class Word2007 extends AbstractReader implements ReaderInterface
     /**
      * Read document part.
      *
-     * @param \Devengine\PhpWord\PhpWord $phpWord
+     * @param \PhpOffice\PhpWord\PhpWord $phpWord
      * @param array $relationships
      * @param string $partName
      * @param string $docFile
@@ -89,9 +89,9 @@ class Word2007 extends AbstractReader implements ReaderInterface
      */
     private function readPart(PhpWord $phpWord, $relationships, $partName, $docFile, $xmlFile)
     {
-        $partClass = "Devengine\\PhpWord\\Reader\\Word2007\\{$partName}";
+        $partClass = "PhpOffice\\PhpWord\\Reader\\Word2007\\{$partName}";
         if (class_exists($partClass)) {
-            /** @var \Devengine\PhpWord\Reader\Word2007\AbstractPart $part Type hint */
+            /** @var \PhpOffice\PhpWord\Reader\Word2007\AbstractPart $part Type hint */
             $part = new $partClass($docFile, $xmlFile);
             $part->setRels($relationships);
             $part->read($phpWord);

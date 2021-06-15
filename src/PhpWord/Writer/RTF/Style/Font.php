@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\RTF\Style;
+namespace PhpOffice\PhpWord\Writer\RTF\Style;
 
-use Devengine\PhpWord\Style\Font as FontStyle;
+use PhpOffice\PhpWord\Style\Font as FontStyle;
 
 /**
  * RTF font style writer
@@ -49,6 +49,7 @@ class Font extends AbstractStyle
         }
 
         $content = '';
+        $content .= $this->getValueIf($style->isRTL(), '\rtlch');
         $content .= '\cf' . $this->colorIndex;
         $content .= '\f' . $this->nameIndex;
 

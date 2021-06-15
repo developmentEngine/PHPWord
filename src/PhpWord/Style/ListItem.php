@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
 
-use Devengine\PhpWord\Style;
+use PhpOffice\PhpWord\Style;
 
 /**
  * List item style
@@ -140,6 +140,16 @@ class ListItem extends AbstractStyle
     }
 
     /**
+     * Set numbering Id. Same numId means same list
+     * @param mixed $numInt
+     */
+    public function setNumId($numInt)
+    {
+        $this->numId = $numInt;
+        $this->getListTypeStyle();
+    }
+
+    /**
      * Get legacy numbering definition
      *
      * @return array
@@ -148,7 +158,12 @@ class ListItem extends AbstractStyle
     private function getListTypeStyle()
     {
         // Check if legacy style already registered in global Style collection
-        $numStyle = "PHPWordList{$this->listType}";
+        $numStyle = 'PHPWordListType' . $this->listType;
+
+        if ($this->numId) {
+            $numStyle .= 'NumId' . $this->numId;
+        }
+
         if (Style::getStyle($numStyle) !== null) {
             $this->setNumStyle($numStyle);
 

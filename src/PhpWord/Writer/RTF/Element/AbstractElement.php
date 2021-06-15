@@ -8,26 +8,26 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\RTF\Element;
+namespace PhpOffice\PhpWord\Writer\RTF\Element;
 
-use PhpOffice\Common\Text as CommonText;
-use Devengine\PhpWord\Element\AbstractElement as Element;
-use Devengine\PhpWord\Escaper\Rtf;
-use Devengine\PhpWord\Settings;
-use Devengine\PhpWord\Style;
-use Devengine\PhpWord\Style\Font as FontStyle;
-use Devengine\PhpWord\Style\Paragraph as ParagraphStyle;
-use Devengine\PhpWord\Writer\AbstractWriter;
-use Devengine\PhpWord\Writer\HTML\Element\AbstractElement as HTMLAbstractElement;
-use Devengine\PhpWord\Writer\RTF\Style\Font as FontStyleWriter;
-use Devengine\PhpWord\Writer\RTF\Style\Paragraph as ParagraphStyleWriter;
+use PhpOffice\PhpWord\Element\AbstractElement as Element;
+use PhpOffice\PhpWord\Escaper\Rtf;
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\Shared\Text as SharedText;
+use PhpOffice\PhpWord\Style;
+use PhpOffice\PhpWord\Style\Font as FontStyle;
+use PhpOffice\PhpWord\Style\Paragraph as ParagraphStyle;
+use PhpOffice\PhpWord\Writer\AbstractWriter;
+use PhpOffice\PhpWord\Writer\HTML\Element\AbstractElement as HTMLAbstractElement;
+use PhpOffice\PhpWord\Writer\RTF\Style\Font as FontStyleWriter;
+use PhpOffice\PhpWord\Writer\RTF\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * Abstract RTF element writer
@@ -39,16 +39,16 @@ abstract class AbstractElement extends HTMLAbstractElement
     /**
      * Font style
      *
-     * @var \Devengine\PhpWord\Style\Font
+     * @var \PhpOffice\PhpWord\Style\Font
      */
-    private $fontStyle;
+    protected $fontStyle;
 
     /**
      * Paragraph style
      *
-     * @var \Devengine\PhpWord\Style\Paragraph
+     * @var \PhpOffice\PhpWord\Style\Paragraph
      */
-    private $paragraphStyle;
+    protected $paragraphStyle;
 
     public function __construct(AbstractWriter $parentWriter, Element $element, $withoutP = false)
     {
@@ -62,10 +62,10 @@ abstract class AbstractElement extends HTMLAbstractElement
      */
     protected function getStyles()
     {
-        /** @var \Devengine\PhpWord\Writer\RTF $parentWriter Type hint */
+        /** @var \PhpOffice\PhpWord\Writer\RTF $parentWriter Type hint */
         $parentWriter = $this->parentWriter;
 
-        /** @var \Devengine\PhpWord\Element\Text $element Type hint */
+        /** @var \PhpOffice\PhpWord\Element\Text $element Type hint */
         $element = $this->element;
 
         // Font style
@@ -126,7 +126,7 @@ abstract class AbstractElement extends HTMLAbstractElement
             return $this->escaper->escape($text);
         }
 
-        return CommonText::toUnicode($text); // todo: replace with `return $text;` later.
+        return SharedText::toUnicode($text); // todo: replace with `return $text;` later.
     }
 
     /**
@@ -154,7 +154,7 @@ abstract class AbstractElement extends HTMLAbstractElement
             return '';
         }
 
-        /** @var \Devengine\PhpWord\Writer\RTF $parentWriter Type hint */
+        /** @var \PhpOffice\PhpWord\Writer\RTF $parentWriter Type hint */
         $parentWriter = $this->parentWriter;
 
         // Create style writer and set color/name index

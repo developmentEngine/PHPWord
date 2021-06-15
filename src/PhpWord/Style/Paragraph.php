@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
 
-use PhpOffice\Common\Text;
-use Devengine\PhpWord\Exception\InvalidStyleException;
-use Devengine\PhpWord\SimpleType\Jc;
-use Devengine\PhpWord\SimpleType\TextAlignment;
+use PhpOffice\PhpWord\Exception\InvalidStyleException;
+use PhpOffice\PhpWord\Shared\Text;
+use PhpOffice\PhpWord\SimpleType\Jc;
+use PhpOffice\PhpWord\SimpleType\TextAlignment;
 
 /**
  * Paragraph style
@@ -85,14 +85,14 @@ class Paragraph extends Border
     /**
      * Indentation
      *
-     * @var \Devengine\PhpWord\Style\Indentation
+     * @var \PhpOffice\PhpWord\Style\Indentation|null
      */
     private $indentation;
 
     /**
      * Spacing
      *
-     * @var \Devengine\PhpWord\Style\Spacing
+     * @var \PhpOffice\PhpWord\Style\Spacing
      */
     private $spacing;
 
@@ -148,14 +148,14 @@ class Paragraph extends Border
     /**
      * Set of Custom Tab Stops
      *
-     * @var \Devengine\PhpWord\Style\Tab[]
+     * @var \PhpOffice\PhpWord\Style\Tab[]
      */
     private $tabs = array();
 
     /**
      * Shading
      *
-     * @var \Devengine\PhpWord\Style\Shading
+     * @var \PhpOffice\PhpWord\Style\Shading
      */
     private $shading;
 
@@ -198,7 +198,7 @@ class Paragraph extends Border
     {
         $key = Text::removeUnderscorePrefix($key);
         if ('indent' == $key || 'hanging' == $key) {
-            $value = $value * 720;
+            $value = $value * 720;  // 720 twips is 0.5 inch
         }
 
         return parent::setStyleValue($key, $value);
@@ -345,7 +345,7 @@ class Paragraph extends Border
     /**
      * Get shading
      *
-     * @return \Devengine\PhpWord\Style\Indentation
+     * @return \PhpOffice\PhpWord\Style\Indentation
      */
     public function getIndentation()
     {
@@ -410,7 +410,7 @@ class Paragraph extends Border
     /**
      * Get spacing
      *
-     * @return \Devengine\PhpWord\Style\Spacing
+     * @return \PhpOffice\PhpWord\Style\Spacing
      * @todo Rename to getSpacing in 1.0
      */
     public function getSpace()
@@ -509,7 +509,7 @@ class Paragraph extends Border
      * Set the spacing line rule
      *
      * @param string $value Possible values are defined in LineSpacingRule
-     * @return \Devengine\PhpWord\Style\Paragraph
+     * @return \PhpOffice\PhpWord\Style\Paragraph
      */
     public function setSpacingLineRule($value)
     {
@@ -531,7 +531,7 @@ class Paragraph extends Border
      *
      * @param int|float|string $lineHeight
      *
-     * @throws \Devengine\PhpWord\Exception\InvalidStyleException
+     * @throws \PhpOffice\PhpWord\Exception\InvalidStyleException
      * @return self
      */
     public function setLineHeight($lineHeight)
@@ -546,7 +546,7 @@ class Paragraph extends Border
 
         $this->lineHeight = $lineHeight;
         $this->setSpacing(($lineHeight - 1) * self::LINE_HEIGHT);
-        $this->setSpacingLineRule(\Devengine\PhpWord\SimpleType\LineSpacingRule::AUTO);
+        $this->setSpacingLineRule(\PhpOffice\PhpWord\SimpleType\LineSpacingRule::AUTO);
 
         return $this;
     }
@@ -692,7 +692,7 @@ class Paragraph extends Border
     /**
      * Get tabs
      *
-     * @return \Devengine\PhpWord\Style\Tab[]
+     * @return \PhpOffice\PhpWord\Style\Tab[]
      */
     public function getTabs()
     {
@@ -765,7 +765,7 @@ class Paragraph extends Border
     /**
      * Get shading
      *
-     * @return \Devengine\PhpWord\Style\Shading
+     * @return \PhpOffice\PhpWord\Style\Shading
      */
     public function getShading()
     {

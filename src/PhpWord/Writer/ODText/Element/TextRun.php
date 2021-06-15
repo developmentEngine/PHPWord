@@ -8,21 +8,21 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\ODText\Element;
+namespace PhpOffice\PhpWord\Writer\ODText\Element;
 
 /**
  * TextRun element writer
  *
  * @since 0.10.0
  */
-class TextRun extends AbstractElement
+class TextRun extends Text
 {
     /**
      * Write element
@@ -33,6 +33,12 @@ class TextRun extends AbstractElement
         $element = $this->getElement();
 
         $xmlWriter->startElement('text:p');
+        /** @scrutinizer ignore-call */
+        $pStyle = $element->getParagraphStyle();
+        if (!is_string($pStyle)) {
+            $pStyle = 'Normal';
+        }
+        $xmlWriter->writeAttribute('text:style-name', $pStyle);
 
         $containerWriter = new Container($xmlWriter, $element);
         $containerWriter->write();

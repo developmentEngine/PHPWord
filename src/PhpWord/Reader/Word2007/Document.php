@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Reader\Word2007;
+namespace PhpOffice\PhpWord\Reader\Word2007;
 
-use PhpOffice\Common\XMLReader;
-use Devengine\PhpWord\Element\Section;
-use Devengine\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Element\Section;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\XMLReader;
 
 /**
  * Document reader
@@ -32,14 +32,14 @@ class Document extends AbstractPart
     /**
      * PhpWord object
      *
-     * @var \Devengine\PhpWord\PhpWord
+     * @var \PhpOffice\PhpWord\PhpWord
      */
     private $phpWord;
 
     /**
      * Read document.xml.
      *
-     * @param \Devengine\PhpWord\PhpWord $phpWord
+     * @param \PhpOffice\PhpWord\PhpWord $phpWord
      */
     public function read(PhpWord $phpWord)
     {
@@ -64,7 +64,7 @@ class Document extends AbstractPart
      * Read header footer.
      *
      * @param array $settings
-     * @param \Devengine\PhpWord\Element\Section &$section
+     * @param \PhpOffice\PhpWord\Element\Section &$section
      */
     private function readHeaderFooter($settings, Section &$section)
     {
@@ -97,7 +97,7 @@ class Document extends AbstractPart
     /**
      * Read w:sectPr
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @ignoreScrutinizerPatch
      * @return array
@@ -106,6 +106,7 @@ class Document extends AbstractPart
     {
         $styleDefs = array(
             'breakType'     => array(self::READ_VALUE, 'w:type'),
+            'vAlign'        => array(self::READ_VALUE, 'w:vAlign'),
             'pageSizeW'     => array(self::READ_VALUE, 'w:pgSz', 'w:w'),
             'pageSizeH'     => array(self::READ_VALUE, 'w:pgSz', 'w:h'),
             'orientation'   => array(self::READ_VALUE, 'w:pgSz', 'w:orient'),
@@ -140,9 +141,9 @@ class Document extends AbstractPart
     /**
      * Read w:p node.
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $node
-     * @param \Devengine\PhpWord\Element\Section &$section
+     * @param \PhpOffice\PhpWord\Element\Section &$section
      *
      * @todo <w:lastRenderedPageBreak>
      */
@@ -169,9 +170,9 @@ class Document extends AbstractPart
     /**
      * Read w:sectPr node.
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $node
-     * @param \Devengine\PhpWord\Element\Section &$section
+     * @param \PhpOffice\PhpWord\Element\Section &$section
      */
     private function readWSectPrNode(XMLReader $xmlReader, \DOMElement $node, Section &$section)
     {

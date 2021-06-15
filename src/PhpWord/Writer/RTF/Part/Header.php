@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\RTF\Part;
+namespace PhpOffice\PhpWord\Writer\RTF\Part;
 
-use Devengine\PhpWord\Settings;
-use Devengine\PhpWord\Shared\Converter;
-use Devengine\PhpWord\Style;
-use Devengine\PhpWord\Style\Font;
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\Shared\Converter;
+use PhpOffice\PhpWord\Style;
+use PhpOffice\PhpWord\Style\Font;
 
 /**
  * RTF header part writer
@@ -210,7 +210,7 @@ class Header extends AbstractPart
     /**
      * Register border colors.
      *
-     * @param \Devengine\PhpWord\Style\Border $style
+     * @param \PhpOffice\PhpWord\Style\Border $style
      */
     private function registerBorderColor($style)
     {
@@ -225,7 +225,7 @@ class Header extends AbstractPart
     /**
      * Register fonts and colors.
      *
-     * @param \Devengine\PhpWord\Style\AbstractStyle $style
+     * @param \PhpOffice\PhpWord\Style\AbstractStyle $style
      */
     private function registerFontItems($style)
     {

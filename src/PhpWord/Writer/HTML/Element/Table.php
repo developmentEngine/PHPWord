@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\HTML\Element;
+namespace PhpOffice\PhpWord\Writer\HTML\Element;
 
 /**
  * Table element HTML writer
@@ -31,7 +31,7 @@ class Table extends AbstractElement
      */
     public function write()
     {
-        if (!$this->element instanceof \Devengine\PhpWord\Element\Table) {
+        if (!$this->element instanceof \PhpOffice\PhpWord\Element\Table) {
             return '';
         }
 
@@ -42,7 +42,7 @@ class Table extends AbstractElement
             $content .= '<table' . self::getTableStyle($this->element->getStyle()) . '>' . PHP_EOL;
 
             for ($i = 0; $i < $rowCount; $i++) {
-                /** @var $row \Devengine\PhpWord\Element\Row Type hint */
+                /** @var $row \PhpOffice\PhpWord\Element\Row Type hint */
                 $rowStyle = $rows[$i]->getStyle();
                 // $height = $row->getHeight();
                 $tblHeader = $rowStyle->isTblHeader();
@@ -51,6 +51,15 @@ class Table extends AbstractElement
                 $rowCellCount = count($rowCells);
                 for ($j = 0; $j < $rowCellCount; $j++) {
                     $cellStyle = $rowCells[$j]->getStyle();
+                    $cellBgColor = $cellStyle->getBgColor();
+                    $cellBgColor === 'auto' && $cellBgColor = null; // auto cannot be parsed to hexadecimal number
+                    $cellFgColor = null;
+                    if ($cellBgColor) {
+                        $red = hexdec(substr($cellBgColor, 0, 2));
+                        $green = hexdec(substr($cellBgColor, 2, 2));
+                        $blue = hexdec(substr($cellBgColor, 4, 2));
+                        $cellFgColor = (($red * 0.299 + $green * 0.587 + $blue * 0.114) > 186) ? null : 'ffffff';
+                    }
                     $cellColSpan = $cellStyle->getGridSpan();
                     $cellRowSpan = 1;
                     $cellVMerge = $cellStyle->getVMerge();
@@ -74,7 +83,9 @@ class Table extends AbstractElement
                         $cellTag = $tblHeader ? 'th' : 'td';
                         $cellColSpanAttr = (is_numeric($cellColSpan) && ($cellColSpan > 1) ? " colspan=\"{$cellColSpan}\"" : '');
                         $cellRowSpanAttr = ($cellRowSpan > 1 ? " rowspan=\"{$cellRowSpan}\"" : '');
-                        $content .= "<{$cellTag}{$cellColSpanAttr}{$cellRowSpanAttr}>" . PHP_EOL;
+                        $cellBgColorAttr = (is_null($cellBgColor) ? '' : " bgcolor=\"#{$cellBgColor}\"");
+                        $cellFgColorAttr = (is_null($cellFgColor) ? '' : " color=\"#{$cellFgColor}\"");
+                        $content .= "<{$cellTag}{$cellColSpanAttr}{$cellRowSpanAttr}{$cellBgColorAttr}{$cellFgColorAttr}>" . PHP_EOL;
                         $writer = new Container($this->parentWriter, $rowCells[$j]);
                         $content .= $writer->write();
                         if ($cellRowSpan > 1) {
@@ -107,7 +118,7 @@ class Table extends AbstractElement
     /**
      * Translates Table style in CSS equivalent
      *
-     * @param string|\Devengine\PhpWord\Style\Table|null $tableStyle
+     * @param string|\PhpOffice\PhpWord\Style\Table|null $tableStyle
      * @return string
      */
     private function getTableStyle($tableStyle = null)
@@ -119,9 +130,9 @@ class Table extends AbstractElement
             $style = ' class="' . $tableStyle;
         } else {
             $style = ' style="';
-            if ($tableStyle->getLayout() == \Devengine\PhpWord\Style\Table::LAYOUT_FIXED) {
+            if ($tableStyle->getLayout() == \PhpOffice\PhpWord\Style\Table::LAYOUT_FIXED) {
                 $style .= 'table-layout: fixed;';
-            } elseif ($tableStyle->getLayout() == \Devengine\PhpWord\Style\Table::LAYOUT_AUTO) {
+            } elseif ($tableStyle->getLayout() == \PhpOffice\PhpWord\Style\Table::LAYOUT_AUTO) {
                 $style .= 'table-layout: auto;';
             }
         }

@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
 
 /**
  * Font style
@@ -219,14 +219,14 @@ class Font extends AbstractStyle
     /**
      * Paragraph style
      *
-     * @var \Devengine\PhpWord\Style\Paragraph
+     * @var \PhpOffice\PhpWord\Style\Paragraph
      */
     private $paragraph;
 
     /**
      * Shading
      *
-     * @var \Devengine\PhpWord\Style\Shading
+     * @var \PhpOffice\PhpWord\Style\Shading
      */
     private $shading;
 
@@ -248,7 +248,7 @@ class Font extends AbstractStyle
     /**
      * Languages
      *
-     * @var \Devengine\PhpWord\Style\Language
+     * @var \PhpOffice\PhpWord\Style\Language
      */
     private $lang;
 
@@ -272,7 +272,7 @@ class Font extends AbstractStyle
      * Create new font style
      *
      * @param string $type Type of font
-     * @param array|string|\Devengine\PhpWord\Style\AbstractStyle $paragraph Paragraph styles definition
+     * @param array|string|\PhpOffice\PhpWord\Style\AbstractStyle $paragraph Paragraph styles definition
      */
     public function __construct($type = 'text', $paragraph = null)
     {
@@ -658,7 +658,7 @@ class Font extends AbstractStyle
      * Set background
      *
      * @param string $value
-     * @return \Devengine\PhpWord\Style\Table
+     * @return \PhpOffice\PhpWord\Style\Table
      */
     public function setBgColor($value = null)
     {
@@ -783,7 +783,7 @@ class Font extends AbstractStyle
     /**
      * Get paragraph style
      *
-     * @return \Devengine\PhpWord\Style\Paragraph
+     * @return \PhpOffice\PhpWord\Style\Paragraph
      */
     public function getParagraph()
     {
@@ -829,7 +829,7 @@ class Font extends AbstractStyle
     /**
      * Get shading
      *
-     * @return \Devengine\PhpWord\Style\Shading
+     * @return \PhpOffice\PhpWord\Style\Shading
      */
     public function getShading()
     {
@@ -852,7 +852,7 @@ class Font extends AbstractStyle
     /**
      * Get language
      *
-     * @return \Devengine\PhpWord\Style\Language
+     * @return \PhpOffice\PhpWord\Style\Language
      */
     public function getLang()
     {

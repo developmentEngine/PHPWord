@@ -8,20 +8,20 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer;
+namespace PhpOffice\PhpWord\Writer;
 
-use Devengine\PhpWord\Exception\CopyFileException;
-use Devengine\PhpWord\Exception\Exception;
-use Devengine\PhpWord\PhpWord;
-use Devengine\PhpWord\Settings;
-use Devengine\PhpWord\Shared\ZipArchive;
+use PhpOffice\PhpWord\Exception\CopyFileException;
+use PhpOffice\PhpWord\Exception\Exception;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\Shared\ZipArchive;
 
 /**
  * Abstract writer class
@@ -33,7 +33,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * PHPWord object
      *
-     * @var \Devengine\PhpWord\PhpWord
+     * @var \PhpOffice\PhpWord\PhpWord
      */
     protected $phpWord = null;
 
@@ -96,8 +96,8 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Get PhpWord object
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
-     * @return \Devengine\PhpWord\PhpWord
+     * @throws \PhpOffice\PhpWord\Exception\Exception
+     * @return \PhpOffice\PhpWord\PhpWord
      */
     public function getPhpWord()
     {
@@ -110,7 +110,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Set PhpWord object
      *
-     * @param \Devengine\PhpWord\PhpWord
+     * @param \PhpOffice\PhpWord\PhpWord
      * @return self
      */
     public function setPhpWord(PhpWord $phpWord = null)
@@ -151,7 +151,7 @@ abstract class AbstractWriter implements WriterInterface
      * @param bool $value
      * @param string $directory
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
+     * @throws \PhpOffice\PhpWord\Exception\Exception
      * @return self
      */
     public function setUseDiskCaching($value = false, $directory = null)
@@ -220,7 +220,7 @@ abstract class AbstractWriter implements WriterInterface
 
         // Temporary file
         $this->originalFilename = $filename;
-        if (strtolower($filename) == 'php://output' || strtolower($filename) == 'php://stdout') {
+        if (strpos(strtolower($filename), 'php://') === 0) {
             $filename = tempnam(Settings::getTempDir(), 'PhpWord');
             if (false === $filename) {
                 $filename = $this->originalFilename; // @codeCoverageIgnore
@@ -234,7 +234,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Cleanup temporary file.
      *
-     * @throws \Devengine\PhpWord\Exception\CopyFileException
+     * @throws \PhpOffice\PhpWord\Exception\CopyFileException
      */
     protected function cleanupTempFile()
     {
@@ -268,7 +268,7 @@ abstract class AbstractWriter implements WriterInterface
      *
      * @throws \Exception
      *
-     * @return \Devengine\PhpWord\Shared\ZipArchive
+     * @return \PhpOffice\PhpWord\Shared\ZipArchive
      */
     protected function getZipArchive($filename)
     {
@@ -335,7 +335,7 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Add files to package.
      *
-     * @param \Devengine\PhpWord\Shared\ZipArchive $zip
+     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zip
      * @param mixed $elements
      */
     protected function addFilesToPackage(ZipArchive $zip, $elements)
@@ -373,7 +373,7 @@ abstract class AbstractWriter implements WriterInterface
      *
      * Get the actual source from an archive image.
      *
-     * @param \Devengine\PhpWord\Shared\ZipArchive $zipPackage
+     * @param \PhpOffice\PhpWord\Shared\ZipArchive $zipPackage
      * @param string $source
      * @param string $target
      */

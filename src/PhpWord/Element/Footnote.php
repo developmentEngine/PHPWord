@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
-use Devengine\PhpWord\Style\Paragraph;
+use PhpOffice\PhpWord\Style\Paragraph;
 
 class Footnote extends AbstractContainer
 {
@@ -29,7 +29,7 @@ class Footnote extends AbstractContainer
     /**
      * Paragraph style
      *
-     * @var string|\Devengine\PhpWord\Style\Paragraph
+     * @var string|\PhpOffice\PhpWord\Style\Paragraph
      */
     protected $paragraphStyle;
 
@@ -43,7 +43,7 @@ class Footnote extends AbstractContainer
     /**
      * Create new instance
      *
-     * @param string|array|\Devengine\PhpWord\Style\Paragraph $paragraphStyle
+     * @param string|array|\PhpOffice\PhpWord\Style\Paragraph $paragraphStyle
      */
     public function __construct($paragraphStyle = null)
     {
@@ -54,7 +54,7 @@ class Footnote extends AbstractContainer
     /**
      * Get paragraph style
      *
-     * @return string|\Devengine\PhpWord\Style\Paragraph
+     * @return string|\PhpOffice\PhpWord\Style\Paragraph
      */
     public function getParagraphStyle()
     {

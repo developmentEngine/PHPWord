@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Reader;
+namespace PhpOffice\PhpWord\Reader;
 
-use Devengine\PhpWord\Exception\Exception;
+use PhpOffice\PhpWord\Exception\Exception;
 
 /**
  * Reader abstract class
@@ -71,7 +71,7 @@ abstract class AbstractReader implements ReaderInterface
      *
      * @param string $filename
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
+     * @throws \PhpOffice\PhpWord\Exception\Exception
      *
      * @return resource
      */

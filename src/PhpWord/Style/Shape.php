@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
 
 /**
  * Shape style
@@ -50,35 +50,35 @@ class Shape extends AbstractStyle
     /**
      * Frame
      *
-     * @var \Devengine\PhpWord\Style\Frame
+     * @var \PhpOffice\PhpWord\Style\Frame
      */
     private $frame;
 
     /**
      * Fill
      *
-     * @var \Devengine\PhpWord\Style\Fill
+     * @var \PhpOffice\PhpWord\Style\Fill
      */
     private $fill;
 
     /**
      * Outline
      *
-     * @var \Devengine\PhpWord\Style\Outline
+     * @var \PhpOffice\PhpWord\Style\Outline
      */
     private $outline;
 
     /**
      * Shadow
      *
-     * @var \Devengine\PhpWord\Style\Shadow
+     * @var \PhpOffice\PhpWord\Style\Shadow
      */
     private $shadow;
 
     /**
      * 3D extrusion
      *
-     * @var \Devengine\PhpWord\Style\Extrusion
+     * @var \PhpOffice\PhpWord\Style\Extrusion
      */
     private $extrusion;
 
@@ -141,7 +141,7 @@ class Shape extends AbstractStyle
     /**
      * Get frame
      *
-     * @return \Devengine\PhpWord\Style\Frame
+     * @return \PhpOffice\PhpWord\Style\Frame
      */
     public function getFrame()
     {
@@ -164,7 +164,7 @@ class Shape extends AbstractStyle
     /**
      * Get fill
      *
-     * @return \Devengine\PhpWord\Style\Fill
+     * @return \PhpOffice\PhpWord\Style\Fill
      */
     public function getFill()
     {
@@ -187,7 +187,7 @@ class Shape extends AbstractStyle
     /**
      * Get outline
      *
-     * @return \Devengine\PhpWord\Style\Outline
+     * @return \PhpOffice\PhpWord\Style\Outline
      */
     public function getOutline()
     {
@@ -210,7 +210,7 @@ class Shape extends AbstractStyle
     /**
      * Get shadow
      *
-     * @return \Devengine\PhpWord\Style\Shadow
+     * @return \PhpOffice\PhpWord\Style\Shadow
      */
     public function getShadow()
     {
@@ -233,7 +233,7 @@ class Shape extends AbstractStyle
     /**
      * Get 3D extrusion
      *
-     * @return \Devengine\PhpWord\Style\Extrusion
+     * @return \PhpOffice\PhpWord\Style\Extrusion
      */
     public function getExtrusion()
     {

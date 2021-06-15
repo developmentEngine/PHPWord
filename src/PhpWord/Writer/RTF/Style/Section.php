@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\RTF\Style;
+namespace PhpOffice\PhpWord\Writer\RTF\Style;
 
-use Devengine\PhpWord\Style\Section as SectionStyle;
+use PhpOffice\PhpWord\Style\Section as SectionStyle;
 
 /**
  * RTF section style writer
@@ -53,6 +53,7 @@ class Section extends AbstractStyle
         $content .= $this->getValueIf($style->getHeaderHeight() !== null, '\headery' . round($style->getHeaderHeight()));
         $content .= $this->getValueIf($style->getFooterHeight() !== null, '\footery' . round($style->getFooterHeight()));
         $content .= $this->getValueIf($style->getGutter() !== null, '\guttersxn' . round($style->getGutter()));
+        $content .= $this->getValueIf($style->getPageNumberingStart() !== null, '\pgnstarts' . $style->getPageNumberingStart() . '\pgnrestart');
         $content .= ' ';
 
         // Borders

@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer;
+namespace PhpOffice\PhpWord\Writer;
 
-use Devengine\PhpWord\PhpWord;
+use PhpOffice\PhpWord\PhpWord;
 
 /**
  * HTML writer
@@ -50,9 +50,9 @@ class HTML extends AbstractWriter implements WriterInterface
 
         $this->parts = array('Head', 'Body');
         foreach ($this->parts as $partName) {
-            $partClass = 'Devengine\\PhpWord\\Writer\\HTML\\Part\\' . $partName;
+            $partClass = 'PhpOffice\\PhpWord\\Writer\\HTML\\Part\\' . $partName;
             if (class_exists($partClass)) {
-                /** @var \Devengine\PhpWord\Writer\HTML\Part\AbstractPart $part Type hint */
+                /** @var \PhpOffice\PhpWord\Writer\HTML\Part\AbstractPart $part Type hint */
                 $part = new $partClass();
                 $part->setParentWriter($this);
                 $this->writerParts[strtolower($partName)] = $part;
@@ -65,7 +65,7 @@ class HTML extends AbstractWriter implements WriterInterface
      *
      * @param string $filename
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
+     * @throws \PhpOffice\PhpWord\Exception\Exception
      */
     public function save($filename = null)
     {

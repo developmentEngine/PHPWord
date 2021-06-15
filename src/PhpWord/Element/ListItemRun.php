@@ -8,16 +8,16 @@
 *
 * For the full copyright and license information, please read the LICENSE
 * file that was distributed with this source code. For the full list of
-* contributors, visit https://github.com/Devengine/PHPWord/contributors.
+* contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
 *
-* @see         https://github.com/Devengine/PHPWord
+* @see         https://github.com/PHPOffice/PHPWord
 * @copyright   2010-2018 PHPWord contributors
 * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
 */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
-use Devengine\PhpWord\Style\ListItem as ListItemStyle;
+use PhpOffice\PhpWord\Style\ListItem as ListItemStyle;
 
 /**
  * List item element
@@ -32,7 +32,7 @@ class ListItemRun extends TextRun
     /**
      * ListItem Style
      *
-     * @var \Devengine\PhpWord\Style\ListItem
+     * @var \PhpOffice\PhpWord\Style\ListItem
      */
     private $style;
 
@@ -66,7 +66,7 @@ class ListItemRun extends TextRun
     /**
      * Get ListItem style.
      *
-     * @return \Devengine\PhpWord\Style\ListItem
+     * @return \PhpOffice\PhpWord\Style\ListItem
      */
     public function getStyle()
     {

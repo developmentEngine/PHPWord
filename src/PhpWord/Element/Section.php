@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
-use Devengine\PhpWord\ComplexType\FootnoteProperties;
-use Devengine\PhpWord\Style\Section as SectionStyle;
+use PhpOffice\PhpWord\ComplexType\FootnoteProperties;
+use PhpOffice\PhpWord\Style\Section as SectionStyle;
 
 class Section extends AbstractContainer
 {
@@ -30,7 +30,7 @@ class Section extends AbstractContainer
     /**
      * Section style
      *
-     * @var \Devengine\PhpWord\Style\Section
+     * @var \PhpOffice\PhpWord\Style\Section
      */
     private $style;
 
@@ -59,7 +59,7 @@ class Section extends AbstractContainer
      * Create new instance
      *
      * @param int $sectionCount
-     * @param null|array|\Devengine\PhpWord\Style $style
+     * @param null|array|\PhpOffice\PhpWord\Style $style
      */
     public function __construct($sectionCount, $style = null)
     {
@@ -86,7 +86,7 @@ class Section extends AbstractContainer
     /**
      * Get section style
      *
-     * @return \Devengine\PhpWord\Style\Section
+     * @return \PhpOffice\PhpWord\Style\Section
      */
     public function getStyle()
     {
@@ -145,6 +145,20 @@ class Section extends AbstractContainer
      * Get the footnote properties
      *
      * @return FootnoteProperties
+     */
+    public function getFootnoteProperties()
+    {
+        return $this->footnoteProperties;
+    }
+
+    /**
+     * Get the footnote properties
+     *
+     * @deprecated Use the `getFootnoteProperties` method instead
+     *
+     * @return FootnoteProperties
+     *
+     * @codeCoverageIgnore
      */
     public function getFootnotePropoperties()
     {
@@ -206,7 +220,7 @@ class Section extends AbstractContainer
 
         if (in_array($type, array(Header::AUTO, Header::FIRST, Header::EVEN))) {
             $index = count($collection);
-            /** @var \Devengine\PhpWord\Element\AbstractContainer $container Type hint */
+            /** @var \PhpOffice\PhpWord\Element\AbstractContainer $container Type hint */
             $container = new $containerClass($this->sectionId, ++$index, $type);
             $container->setPhpWord($this->phpWord);
 
@@ -236,7 +250,7 @@ class Section extends AbstractContainer
      *
      * @deprecated 0.12.0
      *
-     * @return \Devengine\PhpWord\Style\Section
+     * @return \PhpOffice\PhpWord\Style\Section
      *
      * @codeCoverageIgnore
      */

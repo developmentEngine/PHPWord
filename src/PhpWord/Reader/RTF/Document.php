@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Reader\RTF;
+namespace PhpOffice\PhpWord\Reader\RTF;
 
-use Devengine\PhpWord\PhpWord;
-use Devengine\PhpWord\SimpleType\Jc;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\SimpleType\Jc;
 
 /**
  * RTF document reader
@@ -41,21 +41,21 @@ class Document
     /**
      * PhpWord object
      *
-     * @var \Devengine\PhpWord\PhpWord
+     * @var \PhpOffice\PhpWord\PhpWord
      */
     private $phpWord;
 
     /**
      * Section object
      *
-     * @var \Devengine\PhpWord\Element\Section
+     * @var \PhpOffice\PhpWord\Element\Section
      */
     private $section;
 
     /**
      * Textrun object
      *
-     * @var \Devengine\PhpWord\Element\TextRun
+     * @var \PhpOffice\PhpWord\Element\TextRun
      */
     private $textrun;
 
@@ -130,7 +130,7 @@ class Document
      * - Builds control words and control symbols
      * - Pushes every other character into the text queue
      *
-     * @param \Devengine\PhpWord\PhpWord $phpWord
+     * @param \PhpOffice\PhpWord\PhpWord $phpWord
      * @todo Use `fread` stream for scalability
      */
     public function read(PhpWord $phpWord)

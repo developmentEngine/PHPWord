@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Metadata;
+namespace PhpOffice\PhpWord\Metadata;
 
-use PhpOffice\Common\Microsoft\PasswordEncoder;
-use Devengine\PhpWord\SimpleType\DocProtect;
+use PhpOffice\PhpWord\Shared\Microsoft\PasswordEncoder;
+use PhpOffice\PhpWord\SimpleType\DocProtect;
 
 /**
  * Document protection class
@@ -51,7 +51,7 @@ class Protection
     private $spinCount = 100000;
 
     /**
-     * Cryptographic Hashing Algorithm (see constants defined in \Devengine\PhpWord\Shared\Microsoft\PasswordEncoder)
+     * Cryptographic Hashing Algorithm (see constants defined in \PhpOffice\PhpWord\Shared\Microsoft\PasswordEncoder)
      *
      * @var string
      */
@@ -89,7 +89,7 @@ class Protection
     /**
      * Set editing protection
      *
-     * @param string $editing Any value of \Devengine\PhpWord\SimpleType\DocProtect
+     * @param string $editing Any value of \PhpOffice\PhpWord\SimpleType\DocProtect
      * @return self
      */
     public function setEditing($editing = null)

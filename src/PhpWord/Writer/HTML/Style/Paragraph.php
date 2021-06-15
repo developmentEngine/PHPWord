@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\HTML\Style;
+namespace PhpOffice\PhpWord\Writer\HTML\Style;
 
-use Devengine\PhpWord\SimpleType\Jc;
+use PhpOffice\PhpWord\SimpleType\Jc;
 
 /**
  * Paragraph style HTML writer
@@ -34,7 +34,7 @@ class Paragraph extends AbstractStyle
     public function write()
     {
         $style = $this->getStyle();
-        if (!$style instanceof \Devengine\PhpWord\Style\Paragraph) {
+        if (!$style instanceof \PhpOffice\PhpWord\Style\Paragraph) {
             return '';
         }
         $css = array();

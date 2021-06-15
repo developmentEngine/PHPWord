@@ -8,21 +8,21 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Element;
+namespace PhpOffice\PhpWord\Writer\Word2007\Element;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Element\TOC as TOCElement;
-use Devengine\PhpWord\Style\Font;
-use Devengine\PhpWord\Writer\Word2007\Style\Font as FontStyleWriter;
-use Devengine\PhpWord\Writer\Word2007\Style\Paragraph as ParagraphStyleWriter;
-use Devengine\PhpWord\Writer\Word2007\Style\Tab as TabStyleWriter;
+use PhpOffice\PhpWord\Element\TOC as TOCElement;
+use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Style\Font;
+use PhpOffice\PhpWord\Writer\Word2007\Style\Font as FontStyleWriter;
+use PhpOffice\PhpWord\Writer\Word2007\Style\Paragraph as ParagraphStyleWriter;
+use PhpOffice\PhpWord\Writer\Word2007\Style\Tab as TabStyleWriter;
 
 /**
  * TOC element writer
@@ -64,9 +64,9 @@ class TOC extends AbstractElement
     /**
      * Write title
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\TOC $element
-     * @param \Devengine\PhpWord\Element\Title $title
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\TOC $element
+     * @param \PhpOffice\PhpWord\Element\Title $title
      * @param bool $writeFieldMark
      */
     private function writeTitle(XMLWriter $xmlWriter, TOCElement $element, $title, $writeFieldMark)
@@ -132,8 +132,8 @@ class TOC extends AbstractElement
     /**
      * Write style
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\TOC $element
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\TOC $element
      * @param int $indent
      */
     private function writeStyle(XMLWriter $xmlWriter, TOCElement $element, $indent)
@@ -178,8 +178,8 @@ class TOC extends AbstractElement
     /**
      * Write TOC Field.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\TOC $element
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\TOC $element
      */
     private function writeFieldMark(XMLWriter $xmlWriter, TOCElement $element)
     {

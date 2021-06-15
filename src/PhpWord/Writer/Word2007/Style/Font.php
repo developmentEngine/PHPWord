@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Style;
+namespace PhpOffice\PhpWord\Writer\Word2007\Style;
 
 /**
  * Font style writer
@@ -44,6 +44,10 @@ class Font extends AbstractStyle
             $xmlWriter->startElement('w:rStyle');
             $xmlWriter->writeAttribute('w:val', $this->style);
             $xmlWriter->endElement();
+            $style = \PhpOffice\PhpWord\Style::getStyle($this->style);
+            if ($style instanceof \PhpOffice\PhpWord\Style\Font) {
+                $xmlWriter->writeElementIf($style->isRTL(), 'w:rtl');
+            }
             $xmlWriter->endElement();
         } else {
             $this->writeStyle();
@@ -56,7 +60,7 @@ class Font extends AbstractStyle
     private function writeStyle()
     {
         $style = $this->getStyle();
-        if (!$style instanceof \Devengine\PhpWord\Style\Font) {
+        if (!$style instanceof \PhpOffice\PhpWord\Style\Font) {
             return;
         }
 
@@ -139,7 +143,7 @@ class Font extends AbstractStyle
         $xmlWriter->writeElementIf($style->getKerning() !== null, 'w:kern', 'w:val', $style->getKerning() * 2);
 
         // noProof
-        $xmlWriter->writeElementIf($style->isNoProof() !== null, 'w:noProof', $this->writeOnOf($style->isNoProof()));
+        $xmlWriter->writeElementIf($style->isNoProof() !== null, 'w:noProof', 'w:val', $this->writeOnOf($style->isNoProof()));
 
         // Background-Color
         $shading = $style->getShading();

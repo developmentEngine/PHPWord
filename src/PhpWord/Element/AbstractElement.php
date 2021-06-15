@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
-use Devengine\PhpWord\Media;
-use Devengine\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Media;
+use PhpOffice\PhpWord\PhpWord;
 
 /**
  * Element abstract class
@@ -30,7 +30,7 @@ abstract class AbstractElement
     /**
      * PhpWord object
      *
-     * @var \Devengine\PhpWord\PhpWord
+     * @var \PhpOffice\PhpWord\PhpWord
      */
     protected $phpWord;
 
@@ -96,7 +96,7 @@ abstract class AbstractElement
     /**
      * A reference to the parent
      *
-     * @var \Devengine\PhpWord\Element\AbstractElement
+     * @var AbstractElement|null
      */
     private $parent;
 
@@ -145,7 +145,7 @@ abstract class AbstractElement
     /**
      * Get PhpWord
      *
-     * @return \Devengine\PhpWord\PhpWord
+     * @return \PhpOffice\PhpWord\PhpWord
      */
     public function getPhpWord()
     {
@@ -155,7 +155,7 @@ abstract class AbstractElement
     /**
      * Set PhpWord as reference.
      *
-     * @param \Devengine\PhpWord\PhpWord $phpWord
+     * @param \PhpOffice\PhpWord\PhpWord $phpWord
      */
     public function setPhpWord(PhpWord $phpWord = null)
     {
@@ -335,6 +335,11 @@ abstract class AbstractElement
         $this->commentRangeEnd->setEndElement($this);
     }
 
+    /**
+     * Get parent element
+     *
+     * @return AbstractElement|null
+     */
     public function getParent()
     {
         return $this->parent;
@@ -345,7 +350,7 @@ abstract class AbstractElement
      *
      * Passed parameter should be a container, except for Table (contain Row) and Row (contain Cell)
      *
-     * @param \Devengine\PhpWord\Element\AbstractElement $container
+     * @param \PhpOffice\PhpWord\Element\AbstractElement $container
      */
     public function setParentContainer(self $container)
     {

@@ -24,7 +24,7 @@ use PhpOffice\PhpWord\Element\Image;
  *
  * @runTestsInSeparateProcesses
  */
-class MediaTest extends \PHPUnit\Framework\TestCase
+class MediaTest extends AbstractWebServerEmbeddedTest
 {
     /**
      * Get section media elements
@@ -32,6 +32,22 @@ class MediaTest extends \PHPUnit\Framework\TestCase
     public function testGetSectionMediaElementsWithNull()
     {
         $this->assertEquals(array(), Media::getElements('section'));
+    }
+
+    /**
+     * Get header media elements
+     */
+    public function testGetHeaderMediaElementsWithNull()
+    {
+        $this->assertEquals(array(), Media::getElements('header'));
+    }
+
+    /**
+     * Get footer media elements
+     */
+    public function testGetFooterMediaElementsWithNull()
+    {
+        $this->assertEquals(array(), Media::getElements('footer'));
     }
 
     /**
@@ -49,7 +65,7 @@ class MediaTest extends \PHPUnit\Framework\TestCase
     {
         $local = __DIR__ . '/_files/images/mars.jpg';
         $object = __DIR__ . '/_files/documents/sheet.xls';
-        $remote = 'http://php.net/images/logos/php-med-trans-light.gif';
+        $remote = self::getRemoteImageUrl();
         Media::addElement('section', 'image', $local, new Image($local));
         Media::addElement('section', 'image', $local, new Image($local));
         Media::addElement('section', 'image', $remote, new Image($local));
@@ -77,7 +93,7 @@ class MediaTest extends \PHPUnit\Framework\TestCase
     public function testAddHeaderMediaElement()
     {
         $local = __DIR__ . '/_files/images/mars.jpg';
-        $remote = 'http://php.net/images/logos/php-med-trans-light.gif';
+        $remote = self::getRemoteImageUrl();
         Media::addElement('header1', 'image', $local, new Image($local));
         Media::addElement('header1', 'image', $local, new Image($local));
         Media::addElement('header1', 'image', $remote, new Image($remote));
@@ -92,7 +108,7 @@ class MediaTest extends \PHPUnit\Framework\TestCase
     public function testAddFooterMediaElement()
     {
         $local = __DIR__ . '/_files/images/mars.jpg';
-        $remote = 'http://php.net/images/logos/php-med-trans-light.gif';
+        $remote = self::getRemoteImageUrl();
         Media::addElement('footer1', 'image', $local, new Image($local));
         Media::addElement('footer1', 'image', $local, new Image($local));
         Media::addElement('footer1', 'image', $remote, new Image($remote));

@@ -8,32 +8,32 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
 
-use Devengine\PhpWord\ComplexType\TblWidth as TblWidthComplexType;
-use Devengine\PhpWord\SimpleType\Jc;
-use Devengine\PhpWord\SimpleType\JcTable;
-use Devengine\PhpWord\SimpleType\TblWidth;
+use PhpOffice\PhpWord\ComplexType\TblWidth as TblWidthComplexType;
+use PhpOffice\PhpWord\SimpleType\Jc;
+use PhpOffice\PhpWord\SimpleType\JcTable;
+use PhpOffice\PhpWord\SimpleType\TblWidth;
 
 class Table extends Border
 {
     /**
-     * @deprecated Use \Devengine\PhpWord\SimpleType\TblWidth::AUTO instead
+     * @deprecated Use \PhpOffice\PhpWord\SimpleType\TblWidth::AUTO instead
      */
     const WIDTH_AUTO = 'auto'; // Automatically determined width
     /**
-     * @deprecated Use \Devengine\PhpWord\SimpleType\TblWidth::PERCENT instead
+     * @deprecated Use \PhpOffice\PhpWord\SimpleType\TblWidth::PERCENT instead
      */
     const WIDTH_PERCENT = 'pct'; // Width in fiftieths (1/50) of a percent (1% = 50 unit)
     /**
-     * @deprecated Use \Devengine\PhpWord\SimpleType\TblWidth::TWIP instead
+     * @deprecated Use \PhpOffice\PhpWord\SimpleType\TblWidth::TWIP instead
      */
     const WIDTH_TWIP = 'dxa'; // Width in twentieths (1/20) of a point (twip)
 
@@ -61,7 +61,7 @@ class Table extends Border
     /**
      * Style for first row
      *
-     * @var \Devengine\PhpWord\Style\Table
+     * @var \PhpOffice\PhpWord\Style\Table
      */
     private $firstRowStyle;
 
@@ -124,7 +124,7 @@ class Table extends Border
     /**
      * Shading
      *
-     * @var \Devengine\PhpWord\Style\Shading
+     * @var \PhpOffice\PhpWord\Style\Shading
      */
     private $shading;
 
@@ -156,7 +156,7 @@ class Table extends Border
     /**
      * Position
      *
-     * @var \Devengine\PhpWord\Style\TablePosition
+     * @var \PhpOffice\PhpWord\Style\TablePosition
      */
     private $position;
 
@@ -169,6 +169,14 @@ class Table extends Border
      * @var int[]
      */
     private $columnWidths;
+
+    /**
+     * Visually Right to Left Table
+     *
+     * @see  http://www.datypic.com/sc/ooxml/e-w_bidiVisual-1.html
+     * @var bool
+     */
+    private $bidiVisual = false;
 
     /**
      * Create new table style
@@ -210,7 +218,7 @@ class Table extends Border
     /**
      * Set first row
      *
-     * @return \Devengine\PhpWord\Style\Table
+     * @return \PhpOffice\PhpWord\Style\Table
      */
     public function getFirstRow()
     {
@@ -528,7 +536,7 @@ class Table extends Border
     /**
      * Get shading
      *
-     * @return \Devengine\PhpWord\Style\Shading
+     * @return \PhpOffice\PhpWord\Style\Shading
      */
     public function getShading()
     {
@@ -716,7 +724,7 @@ class Table extends Border
     /**
      * Get position
      *
-     * @return \Devengine\PhpWord\Style\TablePosition
+     * @return \PhpOffice\PhpWord\Style\TablePosition
      */
     public function getPosition()
     {
@@ -774,5 +782,29 @@ class Table extends Border
     public function setColumnWidths(array $value = null)
     {
         $this->columnWidths = $value;
+    }
+
+    /**
+     * Get bidiVisual
+     *
+     * @return bool
+     */
+    public function isBidiVisual()
+    {
+        return $this->bidiVisual;
+    }
+
+    /**
+     * Set bidiVisual
+     *
+     * @param bool $bidi
+     *            Set to true to visually present table as Right to Left
+     * @return self
+     */
+    public function setBidiVisual($bidi)
+    {
+        $this->bidiVisual = $bidi;
+
+        return $this;
     }
 }

@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
 /**
  * TrackChange element
@@ -33,7 +33,7 @@ class TrackChange extends AbstractContainer
     protected $container = 'TrackChange';
 
     /**
-     * The type of change, (insert or delete), not applicable for Devengine\PhpWord\Element\Comment
+     * The type of change, (insert or delete), not applicable for PhpOffice\PhpWord\Element\Comment
      *
      * @var string
      */
@@ -58,13 +58,13 @@ class TrackChange extends AbstractContainer
      *
      * @param string $changeType
      * @param string $author
-     * @param null|int|\DateTime $date
+     * @param null|int|bool|\DateTime $date
      */
     public function __construct($changeType = null, $author = null, $date = null)
     {
         $this->changeType = $changeType;
         $this->author = $author;
-        if ($date !== null) {
+        if ($date !== null && $date !== false) {
             $this->date = ($date instanceof \DateTime) ? $date : new \DateTime('@' . $date);
         }
     }

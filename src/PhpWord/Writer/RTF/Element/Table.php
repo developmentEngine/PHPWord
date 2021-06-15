@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\RTF\Element;
+namespace PhpOffice\PhpWord\Writer\RTF\Element;
 
-use Devengine\PhpWord\Element\Cell as CellElement;
-use Devengine\PhpWord\Element\Row as RowElement;
-use Devengine\PhpWord\Element\Table as TableElement;
+use PhpOffice\PhpWord\Element\Cell as CellElement;
+use PhpOffice\PhpWord\Element\Row as RowElement;
+use PhpOffice\PhpWord\Element\Table as TableElement;
 
 /**
  * Table element RTF writer
@@ -58,6 +58,7 @@ class Table extends AbstractElement
                 $content .= $this->writeRow($rows[$i]);
                 $content .= '\row' . PHP_EOL;
             }
+            $content .= '\pard' . PHP_EOL;
         }
 
         return $content;
@@ -66,7 +67,7 @@ class Table extends AbstractElement
     /**
      * Write column
      *
-     * @param \Devengine\PhpWord\Element\Row $row
+     * @param \PhpOffice\PhpWord\Element\Row $row
      * @return string
      */
     private function writeRowDef(RowElement $row)
@@ -90,7 +91,7 @@ class Table extends AbstractElement
     /**
      * Write row
      *
-     * @param \Devengine\PhpWord\Element\Row $row
+     * @param \PhpOffice\PhpWord\Element\Row $row
      * @return string
      */
     private function writeRow(RowElement $row)
@@ -108,7 +109,7 @@ class Table extends AbstractElement
     /**
      * Write cell
      *
-     * @param \Devengine\PhpWord\Element\Cell $cell
+     * @param \PhpOffice\PhpWord\Element\Cell $cell
      * @return string
      */
     private function writeCell(CellElement $cell)

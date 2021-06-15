@@ -8,16 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
 
-use Devengine\PhpWord\SimpleType\TblWidth;
+use PhpOffice\PhpWord\SimpleType\TblWidth;
+use PhpOffice\PhpWord\SimpleType\VerticalJc;
 
 /**
  * Table cell style
@@ -28,10 +29,20 @@ class Cell extends Border
      * Vertical alignment constants
      *
      * @const string
+     * @deprecated Use \PhpOffice\PhpWord\SimpleType\VerticalJc::TOP instead
      */
     const VALIGN_TOP = 'top';
+    /**
+     * @deprecated Use \PhpOffice\PhpWord\SimpleType\VerticalJc::CENTER instead
+     */
     const VALIGN_CENTER = 'center';
+    /**
+     * @deprecated Use \PhpOffice\PhpWord\SimpleType\VerticalJc::BOTTOM instead
+     */
     const VALIGN_BOTTOM = 'bottom';
+    /**
+     * @deprecated Use \PhpOffice\PhpWord\SimpleType\VerticalJc::BOTH instead
+     */
     const VALIGN_BOTH = 'both';
 
     //Text direction constants
@@ -109,7 +120,7 @@ class Cell extends Border
     /**
      * Shading
      *
-     * @var \Devengine\PhpWord\Style\Shading
+     * @var \PhpOffice\PhpWord\Style\Shading
      */
     private $shading;
 
@@ -145,8 +156,8 @@ class Cell extends Border
      */
     public function setVAlign($value = null)
     {
-        $enum = array(self::VALIGN_TOP, self::VALIGN_CENTER, self::VALIGN_BOTTOM, self::VALIGN_BOTH);
-        $this->vAlign = $this->setEnumVal($value, $enum, $this->vAlign);
+        VerticalJc::validate($value);
+        $this->vAlign = $this->setEnumVal($value, VerticalJc::values(), $this->vAlign);
 
         return $this;
     }
@@ -250,7 +261,7 @@ class Cell extends Border
     /**
      * Get shading
      *
-     * @return \Devengine\PhpWord\Style\Shading
+     * @return \PhpOffice\PhpWord\Style\Shading
      */
     public function getShading()
     {

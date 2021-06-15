@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Part;
+namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Element\Comment;
-use Devengine\PhpWord\Writer\Word2007\Element\Container;
+use PhpOffice\PhpWord\Element\Comment;
+use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Writer\Word2007\Element\Container;
 
 /**
  * Word2007 comments part writer: word/comments.xml
@@ -29,7 +29,7 @@ class Comments extends AbstractPart
     /**
      * Comments collection to be written
      *
-     * @var \Devengine\PhpWord\Element\Comment[]
+     * @var \PhpOffice\PhpWord\Element\Comment[]
      */
     protected $elements;
 
@@ -70,8 +70,8 @@ class Comments extends AbstractPart
     /**
      * Write comment item.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\Comment $comment
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\Comment $comment
      */
     protected function writeComment(XMLWriter $xmlWriter, Comment $comment)
     {
@@ -92,7 +92,7 @@ class Comments extends AbstractPart
     /**
      * Set element
      *
-     * @param \Devengine\PhpWord\Element\Comment[] $elements
+     * @param \PhpOffice\PhpWord\Element\Comment[] $elements
      * @return self
      */
     public function setElements($elements)

@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\SimpleType;
+namespace PhpOffice\PhpWord\SimpleType;
 
-use Devengine\PhpWord\Shared\AbstractEnum;
+use PhpOffice\PhpWord\Shared\AbstractEnum;
 
 /**
  * Horizontal Alignment Type.
@@ -27,7 +27,7 @@ use Devengine\PhpWord\Shared\AbstractEnum;
  *
  * @since 0.13.0
  *
- * @see \Devengine\PhpWord\SimpleType\JcTable For table alignment modes available since ISO/IEC-29500:2008.
+ * @see \PhpOffice\PhpWord\SimpleType\JcTable For table alignment modes available since ISO/IEC-29500:2008.
  * @see  http://www.datypic.com/sc/ooxml/t-w_ST_Jc.html
  */
 final class Jc extends AbstractEnum

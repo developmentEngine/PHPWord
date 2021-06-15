@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Reader;
+namespace PhpOffice\PhpWord\Reader;
 
-use PhpOffice\Common\Drawing;
-use Devengine\PhpWord\PhpWord;
-use Devengine\PhpWord\Shared\OLERead;
-use Devengine\PhpWord\Style;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\Drawing;
+use PhpOffice\PhpWord\Shared\OLERead;
+use PhpOffice\PhpWord\Style;
 
 /**
  * Reader for Word97
@@ -1581,7 +1581,7 @@ class MsDoc extends AbstractReader implements ReaderInterface
         // Variables
         $sprmCPicLocation = null;
         $sprmCFData = null;
-        $sprmCFSpec = null;
+        //$sprmCFSpec = null;
 
         do {
             // Variables
@@ -1830,7 +1830,7 @@ class MsDoc extends AbstractReader implements ReaderInterface
                             break;
                         // sprmCFSpec
                         case 0x55:
-                            $sprmCFSpec = $operand;
+                            //$sprmCFSpec = $operand;
                             break;
                         // sprmCFtcBi
                         case 0x5E:
@@ -2094,11 +2094,11 @@ class MsDoc extends AbstractReader implements ReaderInterface
                     $sprmCPicLocation += 1;
 
                     // stPicName
-                    $stPicName = '';
+                    //$stPicName = '';
                     for ($inc = 0; $inc <= $cchPicName; $inc++) {
-                        $chr = self::getInt1d($this->dataData, $sprmCPicLocation);
+                        //$chr = self::getInt1d($this->dataData, $sprmCPicLocation);
                         $sprmCPicLocation += 1;
-                        $stPicName .= chr($chr);
+                        //$stPicName .= chr($chr);
                     }
                 }
 
@@ -2143,11 +2143,11 @@ class MsDoc extends AbstractReader implements ReaderInterface
                             $sprmCPicLocation += 1;
                             // nameData
                             if ($cbName > 0) {
-                                $nameData = '';
+                                //$nameData = '';
                                 for ($inc = 0; $inc <= ($cbName / 2); $inc++) {
-                                    $chr = self::getInt2d($this->dataData, $sprmCPicLocation);
+                                    //$chr = self::getInt2d($this->dataData, $sprmCPicLocation);
                                     $sprmCPicLocation += 2;
-                                    $nameData .= chr($chr);
+                                    //$nameData .= chr($chr);
                                 }
                             }
                             // embeddedBlip

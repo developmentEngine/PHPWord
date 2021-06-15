@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Style;
+namespace PhpOffice\PhpWord\Writer\Word2007\Style;
 
-use Devengine\PhpWord\Style\Section as SectionStyle;
+use PhpOffice\PhpWord\Style\Section as SectionStyle;
 
 /**
  * Section style writer
@@ -47,6 +47,10 @@ class Section extends AbstractStyle
         $xmlWriter->writeAttribute('w:w', $style->getPageSizeW());
         $xmlWriter->writeAttribute('w:h', $style->getPageSizeH());
         $xmlWriter->endElement(); // w:pgSz
+
+        // Vertical alignment
+        $vAlign = $style->getVAlign();
+        $xmlWriter->writeElementIf(!is_null($vAlign), 'w:vAlign', 'w:val', $vAlign);
 
         // Margins
         $margins = array(

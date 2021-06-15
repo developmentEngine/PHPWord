@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Escaper;
+namespace PhpOffice\PhpWord\Escaper;
 
 /**
  * @since 0.13.0
@@ -26,8 +26,14 @@ class Rtf extends AbstractEscaper
 {
     protected function escapeAsciiCharacter($code)
     {
-        if (20 > $code || $code >= 80) {
-            return '{\u' . $code . '}';
+        if ($code == 9) {
+            return '{\\tab}';
+        }
+        if (0x20 > $code || $code >= 0x80) {
+            return '{\\u' . $code . '}';
+        }
+        if ($code == 123 || $code == 125 || $code == 92) { // open or close brace or backslash
+            return '\\' . chr($code);
         }
 
         return chr($code);
@@ -35,7 +41,7 @@ class Rtf extends AbstractEscaper
 
     protected function escapeMultibyteCharacter($code)
     {
-        return '\uc0{\u' . $code . '}';
+        return '\\uc0{\\u' . $code . '}';
     }
 
     /**

@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
-use PhpOffice\Common\Text as CommonText;
-use Devengine\PhpWord\Style\ListItem as ListItemStyle;
+use PhpOffice\PhpWord\Shared\Text as SharedText;
+use PhpOffice\PhpWord\Style\ListItem as ListItemStyle;
 
 /**
  * List item element
@@ -28,14 +28,14 @@ class ListItem extends AbstractElement
     /**
      * Element style
      *
-     * @var \Devengine\PhpWord\Style\ListItem
+     * @var \PhpOffice\PhpWord\Style\ListItem
      */
     private $style;
 
     /**
      * Text object
      *
-     * @var \Devengine\PhpWord\Element\Text
+     * @var \PhpOffice\PhpWord\Element\Text
      */
     private $textObject;
 
@@ -57,7 +57,7 @@ class ListItem extends AbstractElement
      */
     public function __construct($text, $depth = 0, $fontStyle = null, $listStyle = null, $paragraphStyle = null)
     {
-        $this->textObject = new Text(CommonText::toUTF8($text), $fontStyle, $paragraphStyle);
+        $this->textObject = new Text(SharedText::toUTF8($text), $fontStyle, $paragraphStyle);
         $this->depth = $depth;
 
         // Version >= 0.10.0 will pass numbering style name. Older version will use old method
@@ -71,7 +71,7 @@ class ListItem extends AbstractElement
     /**
      * Get style
      *
-     * @return \Devengine\PhpWord\Style\ListItem
+     * @return \PhpOffice\PhpWord\Style\ListItem
      */
     public function getStyle()
     {
@@ -81,7 +81,7 @@ class ListItem extends AbstractElement
     /**
      * Get Text object
      *
-     * @return \Devengine\PhpWord\Element\Text
+     * @return \PhpOffice\PhpWord\Element\Text
      */
     public function getTextObject()
     {

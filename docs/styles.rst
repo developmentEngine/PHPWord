@@ -32,6 +32,8 @@ Available Section style options:
    See ``\PhpOffice\PhpWord\Style\Section::ORIENTATION_...`` class constants for possible values
 - ``pageSizeH``. Page height in *twip*. Implicitly defined by ``orientation`` option. Any changes are discouraged.
 - ``pageSizeW``. Page width in *twip*. Implicitly defined by ``orientation`` option. Any changes are discouraged.
+- ``vAlign``. Vertical Page Alignment
+   See ``\PhpOffice\PhpWord\SimpleType\VerticalJc`` for possible values
 
 .. _font-style:
 
@@ -73,8 +75,10 @@ Available Paragraph style options:
 - ``alignment``. Supports all alignment modes since 1st Edition of ECMA-376 standard up till ISO/IEC 29500:2012.
    See ``\PhpOffice\PhpWord\SimpleType\Jc`` class constants for possible values.
 - ``basedOn``. Parent style.
-- ``hanging``. Hanging in *twip*.
-- ``indent``. Indent in *twip*.
+- ``hanging``. Hanging indentation in *half inches*.
+- ``indent``. Indent (left indentation) in *half inches*.
+- ``indentation``. An array of indentation key => value pairs in *twip*. Supports *left*, *right*, *firstLine* and *hanging* indentation.
+   See ``\PhpOffice\PhpWord\Style\Indentation`` for possible identation types.
 - ``keepLines``. Keep all lines on one page, *true* or *false*.
 - ``keepNext``. Keep paragraph with next paragraph, *true* or *false*.
 - ``lineHeight``. Text line height, e.g. *1.0*, *1.5*, etc.
@@ -108,11 +112,12 @@ Available Table style options:
 - ``border(Top|Right|Bottom|Left)Size``. Border size in *twip*.
 - ``cellMargin(Top|Right|Bottom|Left)``. Cell margin in *twip*.
 - ``indent``. Table indent from leading margin. Must be an instance of ``\PhpOffice\PhpWord\ComplexType\TblWidth``.
-- ``width``. Table width in percent.
+- ``width``. Table width in Fiftieths of a Percent or Twentieths of a Point.
 - ``unit``. The unit to use for the width. One of ``\PhpOffice\PhpWord\SimpleType\TblWidth``. Defaults to *auto*.
 - ``layout``. Table layout, either *fixed* or *autofit*  See ``\PhpOffice\PhpWord\Style\Table`` for constants.
 - ``cellSpacing`` Cell spacing in *twip*
 - ``position`` Floating Table Positioning, see below for options
+- ``bidiVisual`` Present table as Right-To-Left
 
 Floating Table Positioning options:
 
@@ -138,6 +143,7 @@ Available Cell style options:
 - ``bgColor``. Background color, e.g. '9966CC'.
 - ``border(Top|Right|Bottom|Left)Color``. Border color, e.g. '9966CC'.
 - ``border(Top|Right|Bottom|Left)Size``. Border size in *twip*.
+- ``border(Top|Right|Bottom|Left)Style``. Border style. You can use constants from ``\PhpOffice\PhpWord\SimpleType\Border``
 - ``gridSpan``. Number of columns spanned.
 - ``textDirection(btLr|tbRl)``. Direction of text.
    You can use constants ``\PhpOffice\PhpWord\Style\Cell::TEXT_DIR_BTLR`` and ``\PhpOffice\PhpWord\Style\Cell::TEXT_DIR_TBRL``
@@ -196,6 +202,7 @@ Available Chart style options:
 - ``colors``. A list of colors to use in the chart.
 - ``title``. The title for the chart.
 - ``showLegend``. Show legend, *true* or *false*.
+- ``LegendPosition``. Legend position, *r* (default), *b*, *t*, *l* or *tr*.
 - ``categoryLabelPosition``. Label position for categories, *nextTo* (default), *low* or *high*.
 - ``valueLabelPosition``. Label position for values, *nextTo* (default), *low* or *high*.
 - ``categoryAxisTitle``. The title for the category axis.

@@ -8,18 +8,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Element;
+namespace PhpOffice\PhpWord\Element;
 
-use PhpOffice\Common\Text as CommonText;
-use Devengine\PhpWord\Style\Font;
-use Devengine\PhpWord\Style\Paragraph;
+use PhpOffice\PhpWord\Shared\Text as SharedText;
+use PhpOffice\PhpWord\Style\Font;
+use PhpOffice\PhpWord\Style\Paragraph;
 
 /**
  * Text element
@@ -36,14 +36,14 @@ class Text extends AbstractElement
     /**
      * Text style
      *
-     * @var string|\Devengine\PhpWord\Style\Font
+     * @var string|\PhpOffice\PhpWord\Style\Font
      */
     protected $fontStyle;
 
     /**
      * Paragraph style
      *
-     * @var string|\Devengine\PhpWord\Style\Paragraph
+     * @var string|\PhpOffice\PhpWord\Style\Paragraph
      */
     protected $paragraphStyle;
 
@@ -64,9 +64,9 @@ class Text extends AbstractElement
     /**
      * Set Text style
      *
-     * @param string|array|\Devengine\PhpWord\Style\Font $style
-     * @param string|array|\Devengine\PhpWord\Style\Paragraph $paragraphStyle
-     * @return string|\Devengine\PhpWord\Style\Font
+     * @param string|array|\PhpOffice\PhpWord\Style\Font $style
+     * @param string|array|\PhpOffice\PhpWord\Style\Paragraph $paragraphStyle
+     * @return string|\PhpOffice\PhpWord\Style\Font
      */
     public function setFontStyle($style = null, $paragraphStyle = null)
     {
@@ -89,7 +89,7 @@ class Text extends AbstractElement
     /**
      * Get Text style
      *
-     * @return string|\Devengine\PhpWord\Style\Font
+     * @return string|\PhpOffice\PhpWord\Style\Font
      */
     public function getFontStyle()
     {
@@ -99,8 +99,8 @@ class Text extends AbstractElement
     /**
      * Set Paragraph style
      *
-     * @param string|array|\Devengine\PhpWord\Style\Paragraph $style
-     * @return string|\Devengine\PhpWord\Style\Paragraph
+     * @param string|array|\PhpOffice\PhpWord\Style\Paragraph $style
+     * @return string|\PhpOffice\PhpWord\Style\Paragraph
      */
     public function setParagraphStyle($style = null)
     {
@@ -121,7 +121,7 @@ class Text extends AbstractElement
     /**
      * Get Paragraph style
      *
-     * @return string|\Devengine\PhpWord\Style\Paragraph
+     * @return string|\PhpOffice\PhpWord\Style\Paragraph
      */
     public function getParagraphStyle()
     {
@@ -136,7 +136,7 @@ class Text extends AbstractElement
      */
     public function setText($text)
     {
-        $this->text = CommonText::toUTF8($text);
+        $this->text = SharedText::toUTF8($text);
 
         return $this;
     }

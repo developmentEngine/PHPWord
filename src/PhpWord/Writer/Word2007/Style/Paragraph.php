@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Style;
+namespace PhpOffice\PhpWord\Writer\Word2007\Style;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Style;
-use Devengine\PhpWord\Style\Paragraph as ParagraphStyle;
-use Devengine\PhpWord\Writer\Word2007\Element\ParagraphAlignment;
+use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Style;
+use PhpOffice\PhpWord\Style\Paragraph as ParagraphStyle;
+use PhpOffice\PhpWord\Writer\Word2007\Element\ParagraphAlignment;
 
 /**
  * Paragraph style writer
@@ -132,6 +132,7 @@ class Paragraph extends AbstractStyle
 
             $styleWriter = new MarginBorder($xmlWriter);
             $styleWriter->setSizes($style->getBorderSize());
+            $styleWriter->setStyles($style->getBorderStyle());
             $styleWriter->setColors($style->getBorderColor());
             $styleWriter->write();
 
@@ -146,8 +147,8 @@ class Paragraph extends AbstractStyle
     /**
      * Write tabs.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Style\Tab[] $tabs
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Style\Tab[] $tabs
      */
     private function writeTabs(XMLWriter $xmlWriter, $tabs)
     {
@@ -164,7 +165,7 @@ class Paragraph extends AbstractStyle
     /**
      * Write numbering.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      * @param array $numbering
      */
     private function writeNumbering(XMLWriter $xmlWriter, $numbering)
@@ -172,7 +173,7 @@ class Paragraph extends AbstractStyle
         $numStyle = $numbering['style'];
         $numLevel = $numbering['level'];
 
-        /** @var \Devengine\PhpWord\Style\Numbering $numbering */
+        /** @var \PhpOffice\PhpWord\Style\Numbering $numbering */
         $numbering = Style::getStyle($numStyle);
         if ($numStyle !== null && $numbering !== null) {
             $xmlWriter->startElement('w:numPr');

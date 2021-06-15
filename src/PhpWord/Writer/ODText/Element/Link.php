@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\ODText\Element;
+namespace PhpOffice\PhpWord\Writer\ODText\Element;
 
 /**
  * Text element writer
@@ -31,7 +31,7 @@ class Link extends AbstractElement
     {
         $xmlWriter = $this->getXmlWriter();
         $element = $this->getElement();
-        if (!$element instanceof \Devengine\PhpWord\Element\Link) {
+        if (!$element instanceof \PhpOffice\PhpWord\Element\Link) {
             return;
         }
 
@@ -41,7 +41,7 @@ class Link extends AbstractElement
 
         $xmlWriter->startElement('text:a');
         $xmlWriter->writeAttribute('xlink:type', 'simple');
-        $xmlWriter->writeAttribute('xlink:href', $element->getSource());
+        $xmlWriter->writeAttribute('xlink:href', ($element->isInternal() ? '#' : '') . $element->getSource());
         $this->writeText($element->getText());
         $xmlWriter->endElement(); // text:a
 

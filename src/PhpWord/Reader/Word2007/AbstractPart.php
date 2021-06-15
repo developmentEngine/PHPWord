@@ -8,21 +8,21 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Reader\Word2007;
+namespace PhpOffice\PhpWord\Reader\Word2007;
 
-use PhpOffice\Common\XMLReader;
-use Devengine\PhpWord\ComplexType\TblWidth as TblWidthComplexType;
-use Devengine\PhpWord\Element\AbstractContainer;
-use Devengine\PhpWord\Element\TextRun;
-use Devengine\PhpWord\Element\TrackChange;
-use Devengine\PhpWord\PhpWord;
+use PhpOffice\PhpWord\ComplexType\TblWidth as TblWidthComplexType;
+use PhpOffice\PhpWord\Element\AbstractContainer;
+use PhpOffice\PhpWord\Element\TextRun;
+use PhpOffice\PhpWord\Element\TrackChange;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\XMLReader;
 
 /**
  * Abstract part reader
@@ -95,9 +95,9 @@ abstract class AbstractPart
     /**
      * Read w:p.
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
-     * @param \Devengine\PhpWord\Element\AbstractContainer $parent
+     * @param \PhpOffice\PhpWord\Element\AbstractContainer $parent
      * @param string $docPart
      *
      * @todo Get font style for preserve text
@@ -202,9 +202,9 @@ abstract class AbstractPart
     /**
      * Read w:r.
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
-     * @param \Devengine\PhpWord\Element\AbstractContainer $parent
+     * @param \PhpOffice\PhpWord\Element\AbstractContainer $parent
      * @param string $docPart
      * @param mixed $paragraphStyle
      *
@@ -270,6 +270,10 @@ abstract class AbstractPart
 
             $name = $xmlReader->getAttribute('name', $node, 'wp:inline/a:graphic/a:graphicData/pic:pic/pic:nvPicPr/pic:cNvPr');
             $embedId = $xmlReader->getAttribute('r:embed', $node, 'wp:inline/a:graphic/a:graphicData/pic:pic/pic:blipFill/a:blip');
+            if ($name === null && $embedId === null) { // some Converters puts images on a different path
+                $name = $xmlReader->getAttribute('name', $node, 'wp:anchor/a:graphic/a:graphicData/pic:pic/pic:nvPicPr/pic:cNvPr');
+                $embedId = $xmlReader->getAttribute('r:embed', $node, 'wp:anchor/a:graphic/a:graphicData/pic:pic/pic:blipFill/a:blip');
+            }
             $target = $this->getMediaTarget($docPart, $embedId);
             if (!is_null($target)) {
                 $imageSource = "zip://{$this->docFile}#{$target}";
@@ -288,6 +292,19 @@ abstract class AbstractPart
             $parent->addTextBreak();
         } elseif ($node->nodeName == 'w:tab') {
             $parent->addText("\t");
+        } elseif ($node->nodeName == 'mc:AlternateContent') {
+            if ($node->hasChildNodes()) {
+                // Get fallback instead of mc:Choice to make sure it is compatible
+                $fallbackElements = $node->getElementsByTagName('Fallback');
+
+                if ($fallbackElements->length) {
+                    $fallback = $fallbackElements->item(0);
+                    // TextRun
+                    $textContent = htmlspecialchars($fallback->nodeValue, ENT_QUOTES, 'UTF-8');
+
+                    $parent->addText($textContent, $fontStyle, $paragraphStyle);
+                }
+            }
         } elseif ($node->nodeName == 'w:t' || $node->nodeName == 'w:delText') {
             // TextRun
             $textContent = htmlspecialchars($xmlReader->getValue('.', $node), ENT_QUOTES, 'UTF-8');
@@ -316,7 +333,7 @@ abstract class AbstractPart
     /**
      * Read w:tbl.
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @param mixed $parent
      * @param string $docPart
@@ -329,7 +346,7 @@ abstract class AbstractPart
             $tblStyle = $this->readTableStyle($xmlReader, $domNode);
         }
 
-        /** @var \Devengine\PhpWord\Element\Table $table Type hint */
+        /** @var \PhpOffice\PhpWord\Element\Table $table Type hint */
         $table = $parent->addTable($tblStyle);
         $tblNodes = $xmlReader->getElements('*', $domNode);
         foreach ($tblNodes as $tblNode) {
@@ -378,7 +395,7 @@ abstract class AbstractPart
     /**
      * Read w:pPr.
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @return array|null
      */
@@ -413,7 +430,7 @@ abstract class AbstractPart
     /**
      * Read w:rPr
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @return array|null
      */
@@ -459,7 +476,7 @@ abstract class AbstractPart
     /**
      * Read w:tblPr
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @return string|array|null
      * @todo Capture w:tblStylePr w:type="firstRow"
@@ -487,6 +504,7 @@ abstract class AbstractPart
                     $styleDefs["border{$ucfSide}Style"] = array(self::READ_VALUE, "w:tblBorders/w:$side", 'w:val');
                 }
                 $styleDefs['layout'] = array(self::READ_VALUE, 'w:tblLayout', 'w:type');
+                $styleDefs['bidiVisual'] = array(self::READ_TRUE, 'w:bidiVisual');
                 $styleDefs['cellSpacing'] = array(self::READ_VALUE, 'w:tblCellSpacing', 'w:w');
                 $style = $this->readStyleDefs($xmlReader, $styleNode, $styleDefs);
 
@@ -508,7 +526,7 @@ abstract class AbstractPart
     /**
      * Read w:tblpPr
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @return array
      */
@@ -533,7 +551,7 @@ abstract class AbstractPart
     /**
      * Read w:tblInd
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @return TblWidthComplexType
      */
@@ -551,7 +569,7 @@ abstract class AbstractPart
     /**
      * Read w:tcPr
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $domNode
      * @return array
      */
@@ -572,11 +590,11 @@ abstract class AbstractPart
      * Returns the first child element found
      *
      * @param XMLReader $xmlReader
-     * @param \DOMElement $parentNode
-     * @param string|array $elements
+     * @param \DOMElement|null $parentNode
+     * @param string|array|null $elements
      * @return string|null
      */
-    private function findPossibleElement(XMLReader $xmlReader, \DOMElement $parentNode = null, $elements)
+    private function findPossibleElement(XMLReader $xmlReader, \DOMElement $parentNode = null, $elements = null)
     {
         if (is_array($elements)) {
             //if element is an array, we take the first element that exists in the XML
@@ -619,7 +637,7 @@ abstract class AbstractPart
     /**
      * Read style definition
      *
-     * @param \PhpOffice\Common\XMLReader $xmlReader
+     * @param \PhpOffice\PhpWord\Shared\XMLReader $xmlReader
      * @param \DOMElement $parentNode
      * @param array $styleDefs
      * @ignoreScrutinizerPatch

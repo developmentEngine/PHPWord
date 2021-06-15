@@ -17,6 +17,7 @@
 
 namespace PhpOffice\PhpWord\Element;
 
+use PhpOffice\PhpWord\AbstractWebServerEmbeddedTest;
 use PhpOffice\PhpWord\SimpleType\Jc;
 
 /**
@@ -24,7 +25,7 @@ use PhpOffice\PhpWord\SimpleType\Jc;
  *
  * @runTestsInSeparateProcesses
  */
-class ImageTest extends \PHPUnit\Framework\TestCase
+class ImageTest extends AbstractWebServerEmbeddedTest
 {
     /**
      * New instance
@@ -76,10 +77,12 @@ class ImageTest extends \PHPUnit\Framework\TestCase
 
         foreach ($images as $imageData) {
             list($source, $type, $extension, $createFunction, $imageFunction) = $imageData;
+            $nam = ucfirst(strtok($source, '.'));
             $source = __DIR__ . "/../_files/images/{$source}";
-            $image = new Image($source);
+            $image = new Image($source, null, null, $nam);
             $this->assertInstanceOf('PhpOffice\\PhpWord\\Element\\Image', $image);
             $this->assertEquals($source, $image->getSource());
+            $this->assertEquals($nam, $image->getName());
             $this->assertEquals(md5($source), $image->getMediaId());
             $this->assertEquals($type, $image->getImageType());
             $this->assertEquals($extension, $image->getImageExtension());
@@ -131,7 +134,7 @@ class ImageTest extends \PHPUnit\Framework\TestCase
      */
     public function testUnsupportedImage()
     {
-        //disable ssl verification, never do this in real application, you should pass the certiciate instead!!!
+        //disable ssl verification, never do this in real application, you should pass the certificiate instead!!!
         $arrContextOptions = array(
             'ssl' => array(
                 'verify_peer'      => false,
@@ -139,7 +142,7 @@ class ImageTest extends \PHPUnit\Framework\TestCase
             ),
         );
         stream_context_set_default($arrContextOptions);
-        $object = new Image('https://samples.libav.org/image-samples/RACECAR.BMP');
+        $object = new Image(self::getRemoteBmpImageUrl());
         $object->getSource();
     }
 
@@ -215,7 +218,7 @@ class ImageTest extends \PHPUnit\Framework\TestCase
      */
     public function testConstructFromGd()
     {
-        $source = 'http://php.net/images/logos/php-icon.png';
+        $source = self::getRemoteImageUrl();
 
         $image = new Image($source);
         $this->assertInstanceOf('PhpOffice\\PhpWord\\Element\\Image', $image);

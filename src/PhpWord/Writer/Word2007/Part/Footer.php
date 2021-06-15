@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Part;
+namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 
-use Devengine\PhpWord\Writer\Word2007\Element\Container;
+use PhpOffice\PhpWord\Writer\Word2007\Element\Container;
 
 /**
  * Word2007 footer part writer: word/footerx.xml
@@ -34,7 +34,7 @@ class Footer extends AbstractPart
     /**
      * Footer/header element to be written
      *
-     * @var \Devengine\PhpWord\Element\Footer
+     * @var \PhpOffice\PhpWord\Element\Footer
      */
     protected $element;
 
@@ -71,7 +71,7 @@ class Footer extends AbstractPart
     /**
      * Set element
      *
-     * @param \Devengine\PhpWord\Element\Footer|\Devengine\PhpWord\Element\Header $element
+     * @param \PhpOffice\PhpWord\Element\Footer|\PhpOffice\PhpWord\Element\Header $element
      * @return self
      */
     public function setElement($element)

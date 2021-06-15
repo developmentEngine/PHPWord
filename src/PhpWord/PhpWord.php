@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
 */
 
-namespace Devengine\PhpWord;
+namespace PhpOffice\PhpWord;
 
-use Devengine\PhpWord\Element\Section;
-use Devengine\PhpWord\Exception\Exception;
+use PhpOffice\PhpWord\Element\Section;
+use PhpOffice\PhpWord\Exception\Exception;
 
 /**
  * PHPWord main class
@@ -68,7 +68,7 @@ class PhpWord
     /**
      * Collection of sections
      *
-     * @var \Devengine\PhpWord\Element\Section[]
+     * @var \PhpOffice\PhpWord\Element\Section[]
      */
     private $sections = array();
 
@@ -101,14 +101,14 @@ class PhpWord
         // Collection
         $collections = array('Bookmarks', 'Titles', 'Footnotes', 'Endnotes', 'Charts', 'Comments');
         foreach ($collections as $collection) {
-            $class = 'Devengine\\PhpWord\\Collection\\' . $collection;
+            $class = 'PhpOffice\\PhpWord\\Collection\\' . $collection;
             $this->collections[$collection] = new $class();
         }
 
         // Metadata
         $metadata = array('DocInfo', 'Settings', 'Compatibility');
         foreach ($metadata as $meta) {
-            $class = 'Devengine\\PhpWord\\Metadata\\' . $meta;
+            $class = 'PhpOffice\\PhpWord\\Metadata\\' . $meta;
             $this->metadata[$meta] = new $class();
         }
     }
@@ -155,7 +155,7 @@ class PhpWord
         if (in_array($function, $addCollection)) {
             $key = ucfirst(str_replace('add', '', $function) . 's');
 
-            /** @var \Devengine\PhpWord\Collection\AbstractCollection $collectionObject */
+            /** @var \PhpOffice\PhpWord\Collection\AbstractCollection $collectionObject */
             $collectionObject = $this->collections[$key];
 
             return $collectionObject->addItem(isset($args[0]) ? $args[0] : null);
@@ -163,7 +163,7 @@ class PhpWord
 
         // Run add style method
         if (in_array($function, $addStyle)) {
-            return forward_static_call_array(array('Devengine\\PhpWord\\Style', $function), $args);
+            return forward_static_call_array(array('PhpOffice\\PhpWord\\Style', $function), $args);
         }
 
         // Exception
@@ -173,7 +173,7 @@ class PhpWord
     /**
      * Get document properties object
      *
-     * @return \Devengine\PhpWord\Metadata\DocInfo
+     * @return \PhpOffice\PhpWord\Metadata\DocInfo
      */
     public function getDocInfo()
     {
@@ -183,7 +183,7 @@ class PhpWord
     /**
      * Get protection
      *
-     * @return \Devengine\PhpWord\Metadata\Protection
+     * @return \PhpOffice\PhpWord\Metadata\Protection
      * @since 0.12.0
      * @deprecated Get the Document protection from PhpWord->getSettings()->getDocumentProtection();
      * @codeCoverageIgnore
@@ -196,7 +196,7 @@ class PhpWord
     /**
      * Get compatibility
      *
-     * @return \Devengine\PhpWord\Metadata\Compatibility
+     * @return \PhpOffice\PhpWord\Metadata\Compatibility
      * @since 0.12.0
      */
     public function getCompatibility()
@@ -207,7 +207,7 @@ class PhpWord
     /**
      * Get compatibility
      *
-     * @return \Devengine\PhpWord\Metadata\Settings
+     * @return \PhpOffice\PhpWord\Metadata\Settings
      * @since 0.14.0
      */
     public function getSettings()
@@ -218,7 +218,7 @@ class PhpWord
     /**
      * Get all sections
      *
-     * @return \Devengine\PhpWord\Element\Section[]
+     * @return \PhpOffice\PhpWord\Element\Section[]
      */
     public function getSections()
     {
@@ -229,7 +229,7 @@ class PhpWord
      * Returns the section at the requested position
      *
      * @param int $index
-     * @return \Devengine\PhpWord\Element\Section|null
+     * @return \PhpOffice\PhpWord\Element\Section|null
      */
     public function getSection($index)
     {
@@ -244,7 +244,7 @@ class PhpWord
      * Create new section
      *
      * @param array $style
-     * @return \Devengine\PhpWord\Element\Section
+     * @return \PhpOffice\PhpWord\Element\Section
      */
     public function addSection($style = null)
     {
@@ -310,7 +310,7 @@ class PhpWord
      * Set default paragraph style definition to styles.xml
      *
      * @param array $styles Paragraph style definition
-     * @return \Devengine\PhpWord\Style\Paragraph
+     * @return \PhpOffice\PhpWord\Style\Paragraph
      */
     public function setDefaultParagraphStyle($styles)
     {
@@ -324,7 +324,7 @@ class PhpWord
      *
      * @param  string $filename Fully qualified filename
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
+     * @throws \PhpOffice\PhpWord\Exception\Exception
      *
      * @return TemplateProcessor
      *
@@ -382,7 +382,7 @@ class PhpWord
      *
      * @param array $settings
      *
-     * @return \Devengine\PhpWord\Element\Section
+     * @return \PhpOffice\PhpWord\Element\Section
      *
      * @codeCoverageIgnore
      */
@@ -396,7 +396,7 @@ class PhpWord
      *
      * @deprecated 0.12.0
      *
-     * @return \Devengine\PhpWord\Metadata\DocInfo
+     * @return \PhpOffice\PhpWord\Metadata\DocInfo
      *
      * @codeCoverageIgnore
      */
@@ -410,7 +410,7 @@ class PhpWord
      *
      * @deprecated 0.12.0
      *
-     * @param \Devengine\PhpWord\Metadata\DocInfo $documentProperties
+     * @param \PhpOffice\PhpWord\Metadata\DocInfo $documentProperties
      *
      * @return self
      *

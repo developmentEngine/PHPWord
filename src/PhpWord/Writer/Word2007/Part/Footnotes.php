@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Part;
+namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Element\Footnote;
-use Devengine\PhpWord\Writer\Word2007\Element\Container;
-use Devengine\PhpWord\Writer\Word2007\Style\Paragraph as ParagraphStyleWriter;
+use PhpOffice\PhpWord\Element\Footnote;
+use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Writer\Word2007\Element\Container;
+use PhpOffice\PhpWord\Writer\Word2007\Style\Paragraph as ParagraphStyleWriter;
 
 /**
  * Word2007 footnotes part writer: word/(footnotes|endnotes).xml
@@ -58,7 +58,7 @@ class Footnotes extends AbstractPart
     /**
      * Footnotes/endnotes collection to be written
      *
-     * @var \Devengine\PhpWord\Collection\Footnotes|\Devengine\PhpWord\Collection\Endnotes
+     * @var \PhpOffice\PhpWord\Collection\Footnotes|\PhpOffice\PhpWord\Collection\Endnotes
      */
     protected $elements;
 
@@ -122,7 +122,7 @@ class Footnotes extends AbstractPart
     /**
      * Set element
      *
-     * @param \Devengine\PhpWord\Collection\Footnotes|\Devengine\PhpWord\Collection\Endnotes $elements
+     * @param \PhpOffice\PhpWord\Collection\Footnotes|\PhpOffice\PhpWord\Collection\Endnotes $elements
      * @return self
      */
     public function setElements($elements)
@@ -135,8 +135,8 @@ class Footnotes extends AbstractPart
     /**
      * Write note item.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\Footnote|\Devengine\PhpWord\Element\Endnote $element
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\Footnote|\PhpOffice\PhpWord\Element\Endnote $element
      */
     protected function writeNote(XMLWriter $xmlWriter, $element)
     {

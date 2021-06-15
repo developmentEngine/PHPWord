@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PhpWord
+ * @see         https://github.com/PHPOffice/PhpWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\PDF;
+namespace PhpOffice\PhpWord\Writer\PDF;
 
-use Devengine\PhpWord\Exception\Exception;
-use Devengine\PhpWord\PhpWord;
-use Devengine\PhpWord\Settings;
-use Devengine\PhpWord\Writer\HTML;
+use PhpOffice\PhpWord\Exception\Exception;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\Writer\HTML;
 
 /**
  * Abstract PDF renderer
@@ -78,7 +78,7 @@ abstract class AbstractRenderer extends HTML
      *
      * @param PhpWord $phpWord PhpWord object
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
+     * @throws \PhpOffice\PhpWord\Exception\Exception
      */
     public function __construct(PhpWord $phpWord)
     {
@@ -175,7 +175,7 @@ abstract class AbstractRenderer extends HTML
      *
      * @param string $filename Name of the file to save as
      *
-     * @throws \Devengine\PhpWord\Exception\Exception
+     * @throws \PhpOffice\PhpWord\Exception\Exception
      * @return resource
      */
     protected function prepareForSave($filename = null)

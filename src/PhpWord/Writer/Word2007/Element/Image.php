@@ -8,21 +8,21 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Element;
+namespace PhpOffice\PhpWord\Writer\Word2007\Element;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Element\Image as ImageElement;
-use Devengine\PhpWord\Style\Font as FontStyle;
-use Devengine\PhpWord\Style\Frame as FrameStyle;
-use Devengine\PhpWord\Writer\Word2007\Style\Font as FontStyleWriter;
-use Devengine\PhpWord\Writer\Word2007\Style\Image as ImageStyleWriter;
+use PhpOffice\PhpWord\Element\Image as ImageElement;
+use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Style\Font as FontStyle;
+use PhpOffice\PhpWord\Style\Frame as FrameStyle;
+use PhpOffice\PhpWord\Writer\Word2007\Style\Font as FontStyleWriter;
+use PhpOffice\PhpWord\Writer\Word2007\Style\Image as ImageStyleWriter;
 
 /**
  * Image element writer
@@ -78,6 +78,7 @@ class Image extends AbstractElement
         $xmlWriter->startElement('w:pict');
         $xmlWriter->startElement('v:shape');
         $xmlWriter->writeAttribute('type', '#_x0000_t75');
+        $xmlWriter->writeAttribute('stroked', 'f');
 
         $styleWriter->write();
 
@@ -110,6 +111,7 @@ class Image extends AbstractElement
         $xmlWriter->startElement('w:pict');
         $xmlWriter->startElement('v:shape');
         $xmlWriter->writeAttribute('type', '#_x0000_t75');
+        $xmlWriter->writeAttribute('stroked', 'f');
 
         $styleWriter->write();
 

@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PhpWord
+ * @see         https://github.com/PHPOffice/PhpWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\PDF;
+namespace PhpOffice\PhpWord\Writer\PDF;
 
-use Devengine\PhpWord\Writer\WriterInterface;
+use PhpOffice\PhpWord\Writer\WriterInterface;
 
 /**
  * TCPDF writer
@@ -37,6 +37,20 @@ class TCPDF extends AbstractRenderer implements WriterInterface
     protected $includeFile = 'tcpdf.php';
 
     /**
+     * Gets the implementation of external PDF library that should be used.
+     *
+     * @param string $orientation Page orientation
+     * @param string $unit Unit measure
+     * @param string $paperSize Paper size
+     *
+     * @return \TCPDF implementation
+     */
+    protected function createExternalWriterInstance($orientation, $unit, $paperSize)
+    {
+        return new \TCPDF($orientation, $unit, $paperSize);
+    }
+
+    /**
      * Save PhpWord to file.
      *
      * @param string $filename Name of the file to save as
@@ -50,7 +64,7 @@ class TCPDF extends AbstractRenderer implements WriterInterface
         $orientation = 'P';
 
         // Create PDF
-        $pdf = new \TCPDF($orientation, 'pt', $paperSize);
+        $pdf = $this->createExternalWriterInstance($orientation, 'pt', $paperSize);
         $pdf->setFontSubsetting(false);
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);

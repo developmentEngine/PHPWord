@@ -8,14 +8,14 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord;
+namespace PhpOffice\PhpWord;
 
 /**
  * PHPWord settings class
@@ -31,7 +31,7 @@ class Settings
      */
     const ZIPARCHIVE = 'ZipArchive';
     const PCLZIP = 'PclZip';
-    const OLD_LIB = 'Devengine\\PhpWord\\Shared\\ZipArchive'; // @deprecated 0.11
+    const OLD_LIB = 'PhpOffice\\PhpWord\\Shared\\ZipArchive'; // @deprecated 0.11
 
     /**
      * PDF rendering libraries
@@ -70,6 +70,7 @@ class Settings
     const DEFAULT_FONT_SIZE = 10;
     const DEFAULT_FONT_COLOR = '000000';
     const DEFAULT_FONT_CONTENT_TYPE = 'default'; // default|eastAsia|cs
+    const DEFAULT_PAPER = 'A4';
 
     /**
      * Compatibility option for XMLWriter
@@ -118,6 +119,12 @@ class Settings
      * @var int
      */
     private static $defaultFontSize = self::DEFAULT_FONT_SIZE;
+
+    /**
+     * Default paper
+     * @var string
+     */
+    private static $defaultPaper = self::DEFAULT_PAPER;
 
     /**
      * The user defined temporary directory.
@@ -430,6 +437,33 @@ class Settings
         }
 
         return $config;
+    }
+
+    /**
+     * Get default paper
+     *
+     * @return string
+     */
+    public static function getDefaultPaper()
+    {
+        return self::$defaultPaper;
+    }
+
+    /**
+     * Set default paper
+     *
+     * @param string $value
+     * @return bool
+     */
+    public static function setDefaultPaper($value)
+    {
+        if (is_string($value) && trim($value) !== '') {
+            self::$defaultPaper = $value;
+
+            return true;
+        }
+
+        return false;
     }
 
     /**

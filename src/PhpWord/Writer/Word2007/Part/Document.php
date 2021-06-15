@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Part;
+namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Element\Section;
-use Devengine\PhpWord\Writer\Word2007\Element\Container;
-use Devengine\PhpWord\Writer\Word2007\Style\Section as SectionStyleWriter;
+use PhpOffice\PhpWord\Element\Section;
+use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Writer\Word2007\Element\Container;
+use PhpOffice\PhpWord\Writer\Word2007\Style\Section as SectionStyleWriter;
 
 /**
  * Word2007 document part writer: word/document.xml
@@ -80,8 +80,8 @@ class Document extends AbstractPart
     /**
      * Write begin section.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\Section $section
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\Section $section
      */
     private function writeSection(XMLWriter $xmlWriter, Section $section)
     {
@@ -95,8 +95,8 @@ class Document extends AbstractPart
     /**
      * Write end section.
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\Section $section
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\Section $section
      */
     private function writeSectionSettings(XMLWriter $xmlWriter, Section $section)
     {
@@ -126,27 +126,27 @@ class Document extends AbstractPart
             $xmlWriter->endElement();
         }
 
-        //footnote properties
-        if ($section->getFootnotePropoperties() !== null) {
+        // Footnote properties
+        if ($section->getFootnoteProperties() !== null) {
             $xmlWriter->startElement('w:footnotePr');
-            if ($section->getFootnotePropoperties()->getPos() != null) {
+            if ($section->getFootnoteProperties()->getPos() != null) {
                 $xmlWriter->startElement('w:pos');
-                $xmlWriter->writeAttribute('w:val', $section->getFootnotePropoperties()->getPos());
+                $xmlWriter->writeAttribute('w:val', $section->getFootnoteProperties()->getPos());
                 $xmlWriter->endElement();
             }
-            if ($section->getFootnotePropoperties()->getNumFmt() != null) {
+            if ($section->getFootnoteProperties()->getNumFmt() != null) {
                 $xmlWriter->startElement('w:numFmt');
-                $xmlWriter->writeAttribute('w:val', $section->getFootnotePropoperties()->getNumFmt());
+                $xmlWriter->writeAttribute('w:val', $section->getFootnoteProperties()->getNumFmt());
                 $xmlWriter->endElement();
             }
-            if ($section->getFootnotePropoperties()->getNumStart() != null) {
+            if ($section->getFootnoteProperties()->getNumStart() != null) {
                 $xmlWriter->startElement('w:numStart');
-                $xmlWriter->writeAttribute('w:val', $section->getFootnotePropoperties()->getNumStart());
+                $xmlWriter->writeAttribute('w:val', $section->getFootnoteProperties()->getNumStart());
                 $xmlWriter->endElement();
             }
-            if ($section->getFootnotePropoperties()->getNumRestart() != null) {
+            if ($section->getFootnoteProperties()->getNumRestart() != null) {
                 $xmlWriter->startElement('w:numRestart');
-                $xmlWriter->writeAttribute('w:val', $section->getFootnotePropoperties()->getNumRestart());
+                $xmlWriter->writeAttribute('w:val', $section->getFootnoteProperties()->getNumRestart());
                 $xmlWriter->endElement();
             }
             $xmlWriter->endElement();

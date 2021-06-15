@@ -8,14 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Style;
+namespace PhpOffice\PhpWord\Style;
+
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\SimpleType\VerticalJc;
 
 /**
  * Section settings
@@ -55,7 +58,7 @@ class Section extends Border
     /**
      * Paper size
      *
-     * @var \Devengine\PhpWord\Style\Paper
+     * @var \PhpOffice\PhpWord\Style\Paper
      */
     private $paper;
 
@@ -161,10 +164,18 @@ class Section extends Border
     /**
      * Line numbering
      *
-     * @var \Devengine\PhpWord\Style\LineNumbering
+     * @var \PhpOffice\PhpWord\Style\LineNumbering
      * @see  http://www.schemacentral.com/sc/ooxml/e-w_lnNumType-1.html
      */
     private $lineNumbering;
+
+    /**
+     * Vertical Text Alignment on Page
+     * One of \PhpOffice\PhpWord\SimpleType\VerticalJc
+     *
+     * @var string
+     */
+    private $vAlign;
 
     /**
      * Create new instance
@@ -190,8 +201,11 @@ class Section extends Border
      * @param string $value
      * @return self
      */
-    public function setPaperSize($value = 'A4')
+    public function setPaperSize($value = '')
     {
+        if (!$value) {
+            $value = Settings::getDefaultPaper();
+        }
         if ($this->paper === null) {
             $this->paper = new Paper();
         }
@@ -287,7 +301,7 @@ class Section extends Border
     /**
      * @param int|float|null $value
      *
-     * @return \Devengine\PhpWord\Style\Section
+     * @return \PhpOffice\PhpWord\Style\Section
      *
      * @since 0.12.0
      */
@@ -313,7 +327,7 @@ class Section extends Border
     /**
      * @param int|float|null $value
      *
-     * @return \Devengine\PhpWord\Style\Section
+     * @return \PhpOffice\PhpWord\Style\Section
      *
      * @since 0.12.0
      */
@@ -580,7 +594,7 @@ class Section extends Border
     /**
      * Get line numbering
      *
-     * @return \Devengine\PhpWord\Style\LineNumbering
+     * @return \PhpOffice\PhpWord\Style\LineNumbering
      */
     public function getLineNumbering()
     {
@@ -596,6 +610,30 @@ class Section extends Border
     public function setLineNumbering($value = null)
     {
         $this->setObjectVal($value, 'LineNumbering', $this->lineNumbering);
+
+        return $this;
+    }
+
+    /**
+     * Get vertical alignment
+     *
+     * @return string
+     */
+    public function getVAlign()
+    {
+        return $this->vAlign;
+    }
+
+    /**
+     * Set vertical alignment
+     *
+     * @param string $value
+     * @return self
+     */
+    public function setVAlign($value = null)
+    {
+        VerticalJc::validate($value);
+        $this->vAlign = $value;
 
         return $this;
     }

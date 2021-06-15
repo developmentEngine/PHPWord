@@ -8,16 +8,16 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\ODText\Element;
+namespace PhpOffice\PhpWord\Writer\ODText\Element;
 
-use Devengine\PhpWord\Shared\Converter;
+use PhpOffice\PhpWord\Shared\Converter;
 
 /**
  * Image element writer
@@ -33,7 +33,7 @@ class Image extends AbstractElement
     {
         $xmlWriter = $this->getXmlWriter();
         $element = $this->getElement();
-        if (!$element instanceof \Devengine\PhpWord\Element\Image) {
+        if (!$element instanceof \PhpOffice\PhpWord\Element\Image) {
             return;
         }
 
@@ -44,7 +44,7 @@ class Image extends AbstractElement
         $height = Converter::pixelToCm($style->getHeight());
 
         $xmlWriter->startElement('text:p');
-        $xmlWriter->writeAttribute('text:style-name', 'Standard');
+        $xmlWriter->writeAttribute('text:style-name', 'IM' . $mediaIndex);
 
         $xmlWriter->startElement('draw:frame');
         $xmlWriter->writeAttribute('draw:style-name', 'fr' . $mediaIndex);

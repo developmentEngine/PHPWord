@@ -8,19 +8,19 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Element;
+namespace PhpOffice\PhpWord\Writer\Word2007\Element;
 
-use PhpOffice\Common\Text as CommonText;
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Element\AbstractElement as Element;
-use Devengine\PhpWord\Settings;
+use PhpOffice\PhpWord\Element\AbstractElement as Element;
+use PhpOffice\PhpWord\Settings;
+use PhpOffice\PhpWord\Shared\Text as SharedText;
+use PhpOffice\PhpWord\Shared\XMLWriter;
 
 /**
  * Abstract element writer
@@ -32,14 +32,14 @@ abstract class AbstractElement
     /**
      * XML writer
      *
-     * @var \PhpOffice\Common\XMLWriter
+     * @var \PhpOffice\PhpWord\Shared\XMLWriter
      */
     private $xmlWriter;
 
     /**
      * Element
      *
-     * @var \Devengine\PhpWord\Element\AbstractElement
+     * @var \PhpOffice\PhpWord\Element\AbstractElement
      */
     private $element;
 
@@ -58,8 +58,8 @@ abstract class AbstractElement
     /**
      * Create new instance
      *
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\AbstractElement $element
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\AbstractElement $element
      * @param bool $withoutP
      */
     public function __construct(XMLWriter $xmlWriter, Element $element, $withoutP = false)
@@ -72,7 +72,7 @@ abstract class AbstractElement
     /**
      * Get XML Writer
      *
-     * @return \PhpOffice\Common\XMLWriter
+     * @return \PhpOffice\PhpWord\Shared\XMLWriter
      */
     protected function getXmlWriter()
     {
@@ -82,7 +82,7 @@ abstract class AbstractElement
     /**
      * Get element
      *
-     * @return \Devengine\PhpWord\Element\AbstractElement
+     * @return \PhpOffice\PhpWord\Element\AbstractElement
      */
     protected function getElement()
     {
@@ -92,7 +92,7 @@ abstract class AbstractElement
     /**
      * Start w:p DOM element.
      *
-     * @uses \Devengine\PhpWord\Writer\Word2007\Element\PageBreak::write()
+     * @uses \PhpOffice\PhpWord\Writer\Word2007\Element\PageBreak::write()
      */
     protected function startElementP()
     {
@@ -187,10 +187,10 @@ abstract class AbstractElement
     private function writeTextStyle($styleType)
     {
         $method = "get{$styleType}Style";
-        $class = "Devengine\\PhpWord\\Writer\\Word2007\\Style\\{$styleType}";
+        $class = "PhpOffice\\PhpWord\\Writer\\Word2007\\Style\\{$styleType}";
         $styleObject = $this->element->$method();
 
-        /** @var \Devengine\PhpWord\Writer\Word2007\Style\AbstractStyle $styleWriter Type Hint */
+        /** @var \PhpOffice\PhpWord\Writer\Word2007\Style\AbstractStyle $styleWriter Type Hint */
         $styleWriter = new $class($this->xmlWriter, $styleObject);
         if (method_exists($styleWriter, 'setIsInline')) {
             $styleWriter->setIsInline(true);
@@ -207,7 +207,7 @@ abstract class AbstractElement
      */
     protected function getText($text)
     {
-        return CommonText::controlCharacterPHP2OOXML($text);
+        return SharedText::controlCharacterPHP2OOXML($text);
     }
 
     /**

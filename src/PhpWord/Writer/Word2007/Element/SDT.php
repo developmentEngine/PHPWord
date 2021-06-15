@@ -8,17 +8,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/Devengine/PHPWord/contributors.
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * @see         https://github.com/Devengine/PHPWord
+ * @see         https://github.com/PHPOffice/PHPWord
  * @copyright   2010-2018 PHPWord contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace Devengine\PhpWord\Writer\Word2007\Element;
+namespace PhpOffice\PhpWord\Writer\Word2007\Element;
 
-use PhpOffice\Common\XMLWriter;
-use Devengine\PhpWord\Element\SDT as SDTElement;
+use PhpOffice\PhpWord\Element\SDT as SDTElement;
+use PhpOffice\PhpWord\Shared\XMLWriter;
 
 /**
  * Structured document tag element writer
@@ -77,7 +77,7 @@ class SDT extends Text
      * Write text.
      *
      * @see  http://www.datypic.com/sc/ooxml/t-w_CT_SdtText.html
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      */
     private function writePlainText(XMLWriter $xmlWriter)
     {
@@ -89,8 +89,8 @@ class SDT extends Text
      * Write combo box.
      *
      * @see  http://www.datypic.com/sc/ooxml/t-w_CT_SdtComboBox.html
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\SDT $element
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\SDT $element
      */
     private function writeComboBox(XMLWriter $xmlWriter, SDTElement $element)
     {
@@ -108,8 +108,8 @@ class SDT extends Text
      * Write drop down list.
      *
      * @see  http://www.datypic.com/sc/ooxml/t-w_CT_SdtDropDownList.html
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\SDT $element
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\SDT $element
      */
     private function writeDropDownList(XMLWriter $xmlWriter, SDTElement $element)
     {
@@ -120,8 +120,8 @@ class SDT extends Text
      * Write date.
      *
      * @see  http://www.datypic.com/sc/ooxml/t-w_CT_SdtDate.html
-     * @param \PhpOffice\Common\XMLWriter $xmlWriter
-     * @param \Devengine\PhpWord\Element\SDT $element
+     * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
+     * @param \PhpOffice\PhpWord\Element\SDT $element
      */
     private function writeDate(XMLWriter $xmlWriter, SDTElement $element)
     {
